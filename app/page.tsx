@@ -1,65 +1,117 @@
-import Image from "next/image";
+"use client";
+
+import Navbar from "@/components/landing/Navbar";
+import Hero from "@/components/landing/Hero";
+import Badges from "@/components/landing/Badges";
+import PainSection from "@/components/landing/PainSection";
+import Testimonials from "@/components/landing/Testimonials";
+import Benefits from "@/components/landing/Benefits";
+import HowItWorks from "@/components/landing/HowItWorks";
+import AboutLumaru from "@/components/landing/AboutLumaru";
+import FAQ from "@/components/landing/FAQ";
+import FinalCTA from "@/components/landing/FinalCTA";
+import Footer from "@/components/landing/Footer";
+
+// Schema.org estruturado para SEO
+const productSchema = {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  name: "Awake Eye Complex",
+  description:
+    "Creme para olheiras com Shea Butter, Ginkgo Biloba e Horse Chestnut. Redução comprovada em 89% em 28 dias.",
+  brand: {
+    "@type": "Brand",
+    name: "Lumaru",
+  },
+  offers: {
+    "@type": "Offer",
+    price: "35.90",
+    priceCurrency: "USD",
+    availability: "https://schema.org/InStock",
+    priceValidUntil: "2026-12-31",
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    reviewCount: "2150",
+  },
+};
+
+const testimonialsSet1 = [
+  {
+    id: 1,
+    rating: 5,
+    text: "I've tried everything for my dark circles — drugstore, high-end, serums. This is the first thing that actually made me look like I slept 8 hours.",
+    author: "Verified Customer, California",
+  },
+  {
+    id: 2,
+    rating: 5,
+    text: "People stopped asking me if I'm sick. That alone is worth every penny. The puffiness under my eyes went down noticeably in the first week.",
+    author: "Verified Customer, New York",
+  },
+  {
+    id: 3,
+    rating: 5,
+    text: "I'm postpartum and my under eyes were a disaster. After three weeks, I actually smiled at my reflection for the first time in months.",
+    author: "Verified Customer, Texas",
+  },
+];
+
+const testimonialsSet2 = [
+  {
+    id: 4,
+    rating: 5,
+    text: "Genetic dark circles run in my family. I stopped believing any product could help. This one changed my mind — and my mirror.",
+    author: "Verified Customer, Florida",
+  },
+  {
+    id: 5,
+    rating: 5,
+    text: "No more 'you look tired' at work. No more concealer. Just my face — looking awake for the first time in years.",
+    author: "Verified Customer, Illinois",
+  },
+  {
+    id: 6,
+    rating: 5,
+    text: "I have sensitive skin and was nervous. Zero irritation. Within two weeks my puffiness was noticeably reduced. I'm on my second bottle.",
+    author: "Verified Customer, Washington",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      {/* Schema.org para SEO avançado */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+      
+      <main className="min-h-screen bg-background">
+        <Navbar />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Hero />
+          <Badges />
+          <PainSection />
+          <Testimonials 
+            title="What real women are saying"
+            testimonials={testimonialsSet1}
+            showCTA={true}
+          />
+          <Benefits />
+          <HowItWorks />
+          <AboutLumaru />
+          <FAQ />
+          <Testimonials 
+            title="More women who woke up different"
+            testimonials={testimonialsSet2}
+            showCTA={false}
+          />
+          <FinalCTA />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+        <Footer />
       </main>
-    </div>
+    </>
   );
 }
