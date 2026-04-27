@@ -31,7 +31,7 @@ Landing page moderna e de alta performance para produto de skincare, desenvolvid
 
 ```bash
 # Clone o repositório
-git clone lumaru
+git clone <url>
 
 # Instale as dependências
 npm install
