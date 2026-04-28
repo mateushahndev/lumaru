@@ -47,11 +47,7 @@ export default function AboutLumaru() {
 
           <div className="space-y-4 text-text/70 leading-relaxed">
             <p>
-              Lumaru was created with one purpose: a formula that actually addresses what 
-              causes dark circles and puffiness — not just hides them temporarily. 
-              We partnered with ECOCERT-certified labs to develop the 
-              Micro-Circulation Awakening Complex — a blend of three organic actives 
-              that work together the way your skin actually needs.
+              Lumaru was created with one purpose: a formula that actually addresses what causes dark circles and puffiness — not just hides them temporarily. Every tube is made in an ECOCERT-certified facility using the Micro-Circulation Awakening Complex — a blend of three organic actives that work the way your skin actually needs.
             </p>
             <p>
               No fillers. No parabens. No animal testing. No compromises.
@@ -76,17 +72,20 @@ export default function AboutLumaru() {
             onClick={handleCTAClick}
             className="bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-2.5 rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-95"
           >
-            Meet the Formula →
+            Try It Yourself →
           </button>
         </div>
 
         {/* Right Column - Brand Visual */}
         <div className="bg-gradient-to-br from-primary-light/20 to-primary-light/5 rounded-2xl p-12 text-center">
-          <div className="w-32 h-32 mx-auto bg-primary rounded-full flex items-center justify-center mb-4 shadow-lg">
-            <span className="text-4xl font-display text-white">L</span>
+          {/* Logo circular - maior e redondo */}
+          <div className="w-56 h-56 mx-auto bg-primary rounded-full flex items-center justify-center mb-4 shadow-lg">
+            <span className="text-4xl md:text-5xl font-display font-medium tracking-wide text-white">
+              lumaru
+            </span>
           </div>
           <p className="text-sm text-primary/70 font-medium max-w-xs mx-auto">
-            Lumaru — Clean science for real results
+            Clean science for real results
           </p>
         </div>
       </div>

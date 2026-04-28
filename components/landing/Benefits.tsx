@@ -1,36 +1,37 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 const benefits = [
   {
     id: 1,
-    icon: "🌿",
-    label: "Hydration",
-    title: "Skin so hydrated, fine lines stop settling under your eyes",
+    label: "Deep Hydration",
+    title: "Skin so hydrated, your under-eyes stop looking hollow and creased",
     description:
-      "Organic Shea Butter builds a protective barrier that locks in deep moisture — the kind that plumps the skin from within. When the under-eye area is truly hydrated, it stops looking hollow, creased, and exhausted. One application. All day hydration.",
+      "Organic Shea Butter builds a protective barrier that locks moisture deep into the skin — the kind that plumps from within. When the under-eye area is truly hydrated, it stops looking hollow, creased, and exhausted. One application. All day.",
     imageLabel: "Shea Butter — Deep moisture lock",
+    imageSrc: "/images/benefits/shea-nut.webp",
     reverse: false,
   },
   {
     id: 2,
-    icon: "⚡",
-    label: "Dark circles",
+    label: "Fades Dark Circles",
     title: "The real reason your dark circles won't fade — and what finally fixes it",
     description:
-      "Dark circles aren't just pigmentation. They're stagnant blood pooling under thin skin. Ginkgo Biloba Extract activates your skin's microcirculation — flushing out what causes that blue-purple tint and restoring the natural brightness that makes eyes look alive. This is why other creams failed you.",
+      "Dark circles aren't just pigmentation. They're stagnant blood pooling under thin skin. Ginkgo Biloba Extract activates your skin's microcirculation — flushing out what causes that blue-purple tint and restoring the natural brightness that makes eyes look alive. This is why other creams failed you. This is what 'awake' actually looks like.",
     imageLabel: "Ginkgo Biloba — Microcirculation activator",
+    imageSrc: "/images/benefits/ginkgo-biloba.webp",
     reverse: true,
   },
   {
     id: 3,
-    icon: "🌰",
-    label: "Puffiness",
+    label: "De-Puffs Instantly",
     title: "Wake up de-puffed. Even after a bad night.",
     description:
-      "Horse Chestnut Extract strengthens fragile capillary walls and drains excess fluid — the exact cause of morning puffiness. Apply before bed. Wake up to eyes that look rested, awake, and yours again. Not swollen. Not tired. Just you — at your best.",
+      "Horse Chestnut Extract strengthens fragile capillary walls and drains excess fluid — the exact cause of morning puffiness. Apply before bed. Wake up to eyes that look rested, awake, and yours again. Not puffy. Not tired. Not 'are you okay?' — just you, at your best.",
     imageLabel: "Horse Chestnut — Anti-puffiness complex",
+    imageSrc: "/images/benefits/horse-chestnut.webp",
     reverse: false,
   },
 ];
@@ -72,11 +73,21 @@ export default function Benefits() {
             }`}
             style={{ animationDelay: `${index * 150}ms` }}
           >
-            {/* Image/Icon Block */}
+            {/* Image Block */}
             <div className={benefit.reverse ? "md:order-last" : ""}>
-              <div className="bg-gradient-to-br from-primary-light/20 to-primary-light/5 rounded-2xl p-8 text-center hover:shadow-lg transition-all duration-300">
-                <div className="text-6xl mb-4">{benefit.icon}</div>
-                <div className="text-sm text-primary/70 font-medium">
+              <div className="bg-gradient-to-br from-primary-light/20 to-primary-light/5 rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300">
+                {/* Container com altura automática para respeitar proporção da imagem */}
+                <div className="relative w-full rounded-2xl overflow-hidden">
+                  <Image
+                    src={benefit.imageSrc}
+                    alt={benefit.imageLabel}
+                    width={600}
+                    height={400}
+                    className="w-full h-auto rounded-2xl"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <div className="text-sm text-primary/70 font-medium mt-4">
                   {benefit.imageLabel}
                 </div>
               </div>
@@ -85,7 +96,7 @@ export default function Benefits() {
             {/* Content Block */}
             <div className="space-y-4">
               <div className="text-xs font-semibold tracking-wider text-primary uppercase">
-                Benefit 0{benefit.id} — {benefit.label}
+                {benefit.label}
               </div>
               <h3 className="text-2xl md:text-3xl font-medium leading-[1.3] text-text">
                 {benefit.title}

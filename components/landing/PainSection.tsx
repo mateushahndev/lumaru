@@ -43,17 +43,15 @@ export default function PainSection() {
         </h2>
 
         <p className="text-base md:text-lg text-white/70 leading-relaxed">
-          Most eye creams just moisturize the surface. They don't touch the real problem — 
-          poor microcirculation and fluid buildup that cause dark circles and puffiness in the first place. 
-          That's why you've spent hundreds of dollars and still look tired. It's not your skin. 
-          It's the wrong formula.
+          Most eye creams just sit on the surface. They don't touch the real problem — poor microcirculation and stagnant fluid that cause dark circles and puffiness in the first place. That's why you've tried product after product and still hear "you look tired." It's not your fault. It's the wrong formula.
         </p>
 
         <p className="text-base md:text-lg text-white/80 leading-relaxed">
-          The <strong className="text-primary">Awake Eye Complex</strong> is different. 
-          It targets the root cause — with 3 organic actives that work in synergy to 
-          activate your skin, not just coat it.
+          The <strong className="text-primary">Awake Eye Complex</strong> is different. It targets the root cause — with 3 organic actives that wake up the skin under your eyes, not just sit on top of it.
         </p>
+
+
+
 
         <button
           onClick={handleCTAClick}

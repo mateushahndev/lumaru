@@ -1,0 +1,11 @@
+/* Benefits Radius - Força border-radius nas imagens */
+.benefits-image-radius {
+  border-radius: 1rem !important;
+}
+
+/* Versão para mobile */
+@media (max-width: 768px) {
+  .benefits-image-radius {
+    border-radius: 0.75rem !important;
+  }
+}

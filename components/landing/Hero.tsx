@@ -34,13 +34,11 @@ export default function Hero() {
       <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Left Column - Content */}
         <div className="space-y-6 opacity-0 animate-fade-in-up [animation-delay:200ms]">
-          {/* Social Proof Badge */}
           <div className="inline-flex items-center gap-2 bg-primary-light/20 px-4 py-2 rounded-full">
             <span className="text-primary text-sm font-semibold">★★★★★</span>
-            <span className="text-text/70 text-sm">Loved by 2,000+ women</span>
+            <span className="text-text/70 text-sm">Clean science for tired eyes</span>
           </div>
 
-          {/* Main Heading */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.2] tracking-tight text-text">
             Wake up looking{" "}
             <span className="text-primary">rested.</span>
@@ -48,15 +46,13 @@ export default function Hero() {
             Even when you weren't.
           </h1>
 
-          {/* Description */}
           <p className="text-base md:text-lg text-text/70 leading-relaxed">
-            Tired of looking exhausted even after 8 hours of sleep? 
-            No more "are you okay?" comments. No more concealer stacked on concealer. 
-            The <strong className="text-text">Awake Eye Complex</strong> activates the skin under your eyes — 
-            so you look like you slept, even when you didn't.
+            "You look so tired." "Are you feeling okay?" 
+            You've heard it a hundred times — even after a full night's sleep. 
+            The <strong className="text-text">Awake Eye Complex</strong> doesn't just moisturize. It targets what actually causes dark circles and puffiness — 
+            so you look like you slept 8 hours, even when you didn't.
           </p>
 
-          {/* Price and CTA */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <span className="text-2xl text-text/50 line-through">$41.90</span>
@@ -74,27 +70,29 @@ export default function Hero() {
             </button>
 
             <p className="text-sm text-text/50 text-center sm:text-left">
-              Free shipping · 30-day money-back guarantee · No subscriptions
+              Satisfaction guaranteed · No subscriptions
             </p>
           </div>
         </div>
 
-        {/* Right Column - Product Mockup */}
+        {/* SOLUÇÃO 1: SOMENTE GRADIENTE INVERTIDO - sem sombra */}
         <div className="relative opacity-0 animate-fade-in-up [animation-delay:400ms]">
-          <div className="bg-gradient-to-br from-primary-light/20 to-primary-light/5 rounded-2xl p-8 md:p-12">
-            {/* Product Card */}
-            <div className="max-w-[240px] mx-auto bg-white rounded-2xl shadow-xl p-6 text-center">
-              <div className="space-y-2">
-                <div className="text-xs font-semibold text-primary tracking-wider">
-                  LUMARU
-                </div>
-                <div className="text-sm font-medium text-text">AWAKE EYE</div>
-                <div className="text-sm font-medium text-text">COMPLEX</div>
-                <div className="text-xs text-text/50">15 ml</div>
-              </div>
+          {/* 
+            Gradiente diagonal da esquerda (claro) para direita (escuro)
+            from-top-left (claro) → to-bottom-right (escuro)
+          */}
+          <div className="bg-gradient-to-br from-primary-light/5 to-primary-light/35 rounded-2xl p-8 md:p-12">
+            <div className="relative w-full aspect-square max-w-[320px] mx-auto rounded-2xl overflow-hidden">
+              <Image
+                src="/images/hero/product-mockup.png"
+                alt="Awake Eye Complex - Creme para olheiras Lumaru"
+                fill
+                className="object-contain"
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
             </div>
 
-            {/* Rating Section */}
             <div className="mt-8 text-center space-y-3">
               <div className="text-primary text-xl">★★★★★</div>
               <div className="bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 inline-block shadow-sm">

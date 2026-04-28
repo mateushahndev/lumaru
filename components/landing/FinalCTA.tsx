@@ -1,12 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 const benefits = [
   "Micro-Circulation Awakening Complex — targets the root cause",
-  "Visible results in 7 days — or your money back in 30",
+  "Visible improvement week by week — the longer you use it, the better it gets",
   "Certified organic, vegan, cruelty-free — gentle on sensitive skin",
-  "2 to 3 months per bottle — premium formula, honest price",
+  "A little goes a long way — premium formula, fair price",
 ];
 
 export default function FinalCTA() {
@@ -51,9 +52,7 @@ export default function FinalCTA() {
           </h2>
 
           <p className="text-white/70 leading-relaxed">
-            Today only, the Awake Eye Complex is $35.90 — down from $41.90. 
-            Free shipping. 30-day money-back guarantee. 
-            No subscriptions. No tricks.
+            The Awake Eye Complex is 35.90 — down from 41.90. No subscriptions. No hidden fees. Just the formula your eyes have been waiting for.
           </p>
 
           {/* Benefits List */}
@@ -84,28 +83,31 @@ export default function FinalCTA() {
             </button>
 
             <p className="text-xs text-white/50 text-center">
-              Free shipping on all U.S. orders · 30-day money-back guarantee
+              Satisfaction guaranteed · No hidden fees
             </p>
           </div>
         </div>
 
         {/* Right Column - Product Mockup */}
-        <div className="bg-primary/10 rounded-xl p-8 text-center">
-          <div className="max-w-[200px] mx-auto bg-text/10 rounded-2xl p-6 backdrop-blur-sm">
-            <div className="space-y-2">
-              <div className="text-xs font-semibold text-primary tracking-wider">
-                LUMARU
-              </div>
-              <div className="text-sm font-medium text-white">AWAKE EYE</div>
-              <div className="text-sm font-medium text-white">COMPLEX</div>
-              <div className="text-xs text-white/50">15 ml</div>
+        <div className="bg-primary/10 rounded-xl p-8 text-center flex flex-col items-center justify-center">
+          {/* Container com a imagem do produto - quase lá */}
+          <div className="w-full max-w-[380px] mx-auto">
+            <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
+              <Image
+                src="/images/final-cta/product-mockup-cta.png"
+                alt="Awake Eye Complex - Produto Lumaru"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, 380px"
+                priority
+              />
             </div>
           </div>
 
+          {/* Preço abaixo da imagem */}
           <div className="mt-6 text-center">
             <div className="text-white/50 text-sm line-through">$41.90</div>
             <div className="text-3xl font-bold text-primary mt-1">$35.90</div>
-            <div className="text-xs text-white/50 mt-2">Free shipping included</div>
           </div>
         </div>
       </div>

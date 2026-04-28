@@ -7,19 +7,19 @@ const steps = [
     number: "01",
     title: "Apply a rice-grain amount",
     description:
-      "A tiny amount goes a long way — 15ml lasts 2 to 3 months of daily use. One bottle. No repurchasing every 3 weeks.",
+      "A little goes a long way. Just a rice-grain amount covers the entire under-eye area — so one bottle lasts and lasts.",
   },
   {
     number: "02",
     title: "Gently tap around the eye area",
     description:
-      "No rubbing needed. Just light tapping inward to outward. The Micro-Circulation Awakening Complex does the rest.",
+      "No rubbing. No pulling. Just light tapping from the inner corner outward. The Micro-Circulation Awakening Complex takes it from there.",
   },
   {
     number: "03",
     title: "See results within days",
     description:
-      "Hydration is instant. Puffiness visibly reduces in the first week. Dark circles visibly fade over 3 to 4 weeks of consistent use.",
+      "Hydration feels instant. Puffiness goes down within the first week. And with consistent use, dark circles start looking less 'raccoon' and more 'rested' — week by week.",
   },
 ];
 

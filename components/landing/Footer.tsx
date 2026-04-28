@@ -27,14 +27,6 @@ export default function Footer() {
                   Awake Eye Complex
                 </a>
               </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-primary transition-colors duration-300"
-                >
-                  All Products
-                </a>
-              </li>
             </ul>
           </div>
 

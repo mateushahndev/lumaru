@@ -104,7 +104,7 @@ export default function Home() {
           <AboutLumaru />
           <FAQ />
           <Testimonials 
-            title="More women who woke up different"
+            title="More women who finally look rested"
             testimonials={testimonialsSet2}
             showCTA={false}
           />

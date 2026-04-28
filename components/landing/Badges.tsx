@@ -8,7 +8,7 @@ const badges = [
   "COSMOS Certified",
   "No Parabens",
   "GMP Certified",
-  "Dermatologist Tested",
+  "B Corp Certified",
 ];
 
 export default function Badges() {

@@ -36,3 +36,14 @@
     }
   }
 }
+
+@layer components {
+  .product-shadow {
+    filter: drop-shadow(0 20px 25px -5px rgb(0 0 0 / 0.1))
+            drop-shadow(0 8px 10px -6px rgb(0 0 0 / 0.05));
+  }
+  
+  .product-glow {
+    filter: drop-shadow(0 0 20px rgba(181, 165, 209, 0.3));
+  }
+}

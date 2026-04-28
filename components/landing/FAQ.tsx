@@ -14,7 +14,7 @@ const faqItems = [
     id: 2,
     question: "Is $35.90 worth it for only 15ml?",
     answer:
-      "15ml is the industry-standard size for eye creams because you only need a rice-grain sized amount per application — it lasts 2 to 3 months. For comparison, Kiehl's and Estée Lauder charge $50–$76 for the same 15ml. At $35.90 with certified organic ingredients and our 30-day guarantee, it's one of the most honest prices in the premium eye care space.",
+      "15ml is the industry-standard size for eye creams because a rice-grain sized amount is all you need per application — a little goes a long way. Compared to other premium eye creams with similar organic certifications, the Awake Eye Complex delivers the same quality at a fairer price. No luxury markup. Just honest skincare.",
   },
   {
     id: 3,
@@ -32,13 +32,13 @@ const faqItems = [
     id: 5,
     question: "How long until I see results?",
     answer:
-      "Hydration is immediate — your under-eye area will feel softer and more plumped after the first use. Puffiness typically reduces visibly within the first week. For dark circles, consistent twice-daily use shows meaningful brightness improvement at the 3 to 4 week mark. That's why we offer a 30-day guarantee — enough time to see real results.",
+      "Hydration is immediate — your under-eye area will feel softer and more plumped after the first use. Puffiness typically goes down within the first week. For dark circles, consistent twice-daily use brings visible brightening week by week. Stick with it — the longer you use it, the better it gets.",
   },
   {
     id: 6,
     question: "What if it doesn't work for me?",
     answer:
-      "Simple: full refund, no questions asked, within 30 days. We stand behind the formula. If you try it consistently and don't see a visible difference, contact us and we'll make it right. We'd rather lose a sale than keep a customer who isn't satisfied.",
+      "We stand behind the formula. If you try it consistently and don't see a visible difference, contact us and we'll make it right. Your satisfaction matters more to us than a sale.",
   },
 ];
 
