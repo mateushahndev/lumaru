@@ -1,3 +1,5 @@
+"use client";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -23,6 +25,10 @@ export default function Footer() {
                 <a
                   href="#"
                   className="hover:text-primary transition-colors duration-300"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById("final-cta")?.scrollIntoView({ behavior: "smooth" });
+                  }}
                 >
                   Awake Eye Complex
                 </a>
@@ -36,7 +42,9 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-text/60">
               <li>
                 <a
-                  href="#"
+                  href="/contact"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-primary transition-colors duration-300"
                 >
                   Contact Us
@@ -44,18 +52,22 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/shipping"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-primary transition-colors duration-300"
                 >
-                  Returns
+                  Shipping Policy
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/refund"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-primary transition-colors duration-300"
                 >
-                  FAQ
+                  Return & Refund
                 </a>
               </li>
             </ul>
@@ -67,7 +79,9 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-text/60">
               <li>
                 <a
-                  href="#"
+                  href="/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-primary transition-colors duration-300"
                 >
                   Privacy Policy
@@ -75,7 +89,9 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/terms"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-primary transition-colors duration-300"
                 >
                   Terms of Service
