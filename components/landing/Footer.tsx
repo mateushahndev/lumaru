@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -32,6 +34,11 @@ export default function Footer() {
                 >
                   Awake Eye Complex
                 </a>
+              </li>
+              <li>
+                <Link href="/blog" className="hover:text-primary transition-colors duration-300">
+                  Blog
+                </Link>
               </li>
             </ul>
           </div>
