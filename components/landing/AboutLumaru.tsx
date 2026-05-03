@@ -47,7 +47,7 @@ export default function AboutLumaru() {
 
           <div className="space-y-4 text-text/70 leading-relaxed">
             <p>
-              Lumaru was created with one purpose: a formula that actually addresses what causes dark circles and puffiness — not just hides them temporarily. Every tube is made in an ECOCERT-certified facility using the Micro-Circulation Awakening Complex — a blend of three organic actives that work the way your skin actually needs.
+              Lumaru was created with one purpose: a formula that actually addresses what causes dark circles and puffiness — not just hides them temporarily. Every tube is made in an ECOCERT-certified facility in the UK using the Micro-Circulation Awakening Complex — a blend of organic actives and Hyaluronic Acid that work the way your skin actually needs.
             </p>
             <p>
               No fillers. No parabens. No animal testing. No compromises.

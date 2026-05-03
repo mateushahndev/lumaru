@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 const benefits = [
-  "Micro-Circulation Awakening Complex — targets the root cause",
+  "Micro-Circulation Awakening Complex + Hyaluronic Acid — targets the root cause and hydrates instantly",
   "Visible improvement week by week — the longer you use it, the better it gets",
   "Certified organic, vegan, cruelty-free — gentle on sensitive skin",
   "A little goes a long way — premium formula, fair price",
@@ -94,7 +94,7 @@ export default function FinalCTA() {
           <div className="w-full max-w-[380px] mx-auto">
             <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
               <Image
-                src="/images/final-cta/product-mockup-cta.png"
+                src="/images/final-cta/product-box-cta.png"
                 alt="Awake Eye Complex - Produto Lumaru"
                 fill
                 className="object-contain"

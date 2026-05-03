@@ -9,7 +9,7 @@ const benefits = [
     label: "Deep Hydration",
     title: "Skin so hydrated, your under-eyes stop looking hollow and creased",
     description:
-      "Organic Shea Butter builds a protective barrier that locks moisture deep into the skin — the kind that plumps from within. When the under-eye area is truly hydrated, it stops looking hollow, creased, and exhausted. One application. All day.",
+      "Organic Shea Butter and multi-molecular Hyaluronic Acid work together to lock moisture deep into the skin — the kind that plumps from within. When the under-eye area is truly hydrated, it stops looking hollow, creased, and exhausted. One application. All day.",
     imageLabel: "Shea Butter — Deep moisture lock",
     imageSrc: "/images/benefits/shea-nut.webp",
     reverse: false,
@@ -19,7 +19,7 @@ const benefits = [
     label: "Fades Dark Circles",
     title: "The real reason your dark circles won't fade — and what finally fixes it",
     description:
-      "Dark circles aren't just pigmentation. They're stagnant blood pooling under thin skin. Ginkgo Biloba Extract activates your skin's microcirculation — flushing out what causes that blue-purple tint and restoring the natural brightness that makes eyes look alive. This is why other creams failed you. This is what 'awake' actually looks like.",
+      "Dark circles aren't just pigmentation. They're stagnant blood pooling under thin skin. Ginkgo Biloba Extract activates your skin's microcirculation — flushing out what causes that blue-purple tint and restoring the natural brightness that makes eyes look alive. Rice Bran Oil and Grape Leaf Extract, natural antioxidants, help protect the delicate under-eye skin from further damage. This is why other creams failed you. This is what 'awake' actually looks like.",
     imageLabel: "Ginkgo Biloba — Microcirculation activator",
     imageSrc: "/images/benefits/ginkgo-biloba.webp",
     reverse: true,

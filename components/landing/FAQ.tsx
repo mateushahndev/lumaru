@@ -20,7 +20,7 @@ const faqItems = [
     id: 3,
     question: "I have sensitive skin. Will this irritate me?",
     answer:
-      "The formula is 100% free from parabens, sulfates, synthetic fragrances, and harsh actives. It's COSMOS certified and formulated for the most delicate skin area on your face. All three actives — Shea Butter, Ginkgo Biloba, and Horse Chestnut — are natural and skin-compatible. If you've had reactions to retinol-based creams or strong chemical exfoliants in the past, you'll find this a significantly gentler experience.",
+      "The formula is 100% free from parabens, sulfates, and harsh actives. The delicate natural fragrance comes only from essential oils — never synthetics. It's COSMOS certified and formulated for the most delicate skin area on your face. All active ingredients — Shea Butter, Ginkgo Biloba, Horse Chestnut, and Hyaluronic Acid — are natural and skin-compatible. If you've had reactions to retinol-based creams or strong chemical exfoliants in the past, you'll find this a significantly gentler experience.",
   },
   {
     id: 4,
@@ -32,7 +32,7 @@ const faqItems = [
     id: 5,
     question: "How long until I see results?",
     answer:
-      "Hydration is immediate — your under-eye area will feel softer and more plumped after the first use. Puffiness typically goes down within the first week. For dark circles, consistent twice-daily use brings visible brightening week by week. Stick with it — the longer you use it, the better it gets.",
+      "Hydration is immediate — multi-molecular Hyaluronic Acid delivers instant plumpness, so your under-eye area feels softer from the first use. Puffiness typically goes down within the first week. For dark circles, consistent twice-daily use brings visible brightening week by week. Stick with it — the longer you use it, the better it gets.",
   },
   {
     id: 6,

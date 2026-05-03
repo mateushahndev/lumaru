@@ -84,7 +84,7 @@ export default function Hero() {
           <div className="bg-gradient-to-br from-primary-light/5 to-primary-light/35 rounded-2xl p-8 md:p-12">
             <div className="relative w-full aspect-square max-w-[320px] mx-auto rounded-2xl overflow-hidden">
               <Image
-                src="/images/hero/product-mockup.png"
+                src="/images/hero/product.png"
                 alt="Awake Eye Complex - Creme para olheiras Lumaru"
                 fill
                 className="object-contain"
