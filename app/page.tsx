@@ -41,20 +41,20 @@ const testimonialsSet1 = [
   {
     id: 1,
     rating: 5,
-    text: "I've tried everything for my dark circles — drugstore, high-end, serums. This is the first thing that actually made me look like I slept 8 hours.",
-    author: "Verified Customer, California",
+    text: "Shea butter cleared the dark circles around my eyes in less than a week. Just saying.",
+    author: "Verified Formula Tester",
   },
   {
     id: 2,
     rating: 5,
-    text: "People stopped asking me if I'm sick. That alone is worth every penny. The puffiness under my eyes went down noticeably in the first week.",
-    author: "Verified Customer, New York",
+    text: "I love shea. I mix it with a little jojoba and argan and I wake up with the softest, happiest skin.",
+    author: "Verified Formula Tester",
   },
   {
     id: 3,
     rating: 5,
-    text: "I'm postpartum and my under eyes were a disaster. After three weeks, I actually smiled at my reflection for the first time in months.",
-    author: "Verified Customer, Texas",
+    text: "I sleep with shea all over my face every night and I looove it. Hasn't broken me out either and my skin looks so healthy in the morning.",
+    author: "Verified Formula Tester",
   },
 ];
 
@@ -62,20 +62,20 @@ const testimonialsSet2 = [
   {
     id: 4,
     rating: 5,
-    text: "Genetic dark circles run in my family. I stopped believing any product could help. This one changed my mind — and my mirror.",
-    author: "Verified Customer, Florida",
+    text: "I have absolutely seen a big difference. And it happens really quickly, like honestly the first morning after using it. It's just moisturizing the skin super well and plumps it up a bit.",
+    author: "Verified Formula Tester",
   },
   {
     id: 5,
     rating: 5,
-    text: "No more 'you look tired' at work. No more concealer. Just my face — looking awake for the first time in years.",
-    author: "Verified Customer, Illinois",
+    text: "My girlfriend commented on it around a week in, completely not knowing I was using anything. Diminished dark circles and overall healthier skin.",
+    author: "Verified Formula Tester",
   },
   {
     id: 6,
     rating: 5,
-    text: "I have sensitive skin and was nervous. Zero irritation. Within two weeks my puffiness was noticeably reduced. I'm on my second bottle.",
-    author: "Verified Customer, Washington",
+    text: "My under eye concealer usually gets dry and separates by the end of the night but it actually held up. If my concealer can stay without drying it's a win.",
+    author: "Verified Formula Tester",
   },
 ];
 
