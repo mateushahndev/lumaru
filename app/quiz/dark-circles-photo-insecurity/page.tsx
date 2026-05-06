@@ -3,15 +3,20 @@ import QuizContainer from "@/components/quiz/QuizContainer";
 
 export const metadata: Metadata = {
   title: "My Dark Circles Make Me Feel Insecure in Photos — Take the Quiz | Lumaru",
-  description: "Do your dark circles make you feel insecure in photos? Take this 2-minute quiz to understand your under-eye concerns.",
-  keywords: "dark circles, insecure in photos, under-eye insecurity, tired eyes, dark circles quiz",
+  description: "Do your dark circles make you feel insecure in photos? Take this 2-minute quiz to understand your under-eye concerns and find what actually works.",
   openGraph: {
     title: "My Dark Circles Make Me Feel Insecure in Photos — Take the Quiz",
-    description: "Do your dark circles make you feel insecure in photos? Take this 2-minute quiz.",
+    description: "Do your dark circles make you feel insecure in photos? Take this 2-minute quiz to understand your under-eye concerns.",
     url: "https://lumaruskin.com/quiz/dark-circles-photo-insecurity",
     type: "website",
   },
-  robots: "index, follow",
+  alternates: {
+    canonical: "https://lumaruskin.com/quiz/dark-circles-photo-insecurity",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 // Definindo as perguntas AQUI mesmo
@@ -96,13 +101,19 @@ const quizColors = {
   progressBg: "#E0E7F0",
 };
 
+// Schema.org do Quiz (enriquecido)
 const quizSchema = {
   "@context": "https://schema.org",
   "@type": "Quiz",
   name: "Dark Circles Photo Insecurity Quiz",
-  description: "Discover how dark circles affect your confidence in photos.",
+  description: "Discover how dark circles affect your confidence in photos and identify your specific under-eye concerns.",
   url: "https://lumaruskin.com/quiz/dark-circles-photo-insecurity",
   timeRequired: "PT2M",
+  interactivityType: "mixed",
+  educationalLevel: "Beginner",
+  teaches: "Understanding dark circle types and under-eye skin concerns",
+  assessment: "Self-assessment",
+  learningResourceType: "Quiz",
 };
 
 export default function DarkCirclesQuizPage() {

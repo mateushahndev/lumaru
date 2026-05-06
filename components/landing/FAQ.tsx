@@ -42,6 +42,20 @@ const faqItems = [
   },
 ];
 
+// FAQ Schema.org para rich snippets no Google
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map((item) => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer,
+    },
+  })),
+};
+
 export default function FAQ() {
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -65,11 +79,19 @@ export default function FAQ() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="my-16 md:my-20 opacity-0">
-      <h2 className="text-3xl md:text-4xl font-medium text-center mb-10 text-text">
-        Frequently asked questions
-      </h2>
-      <Accordion items={faqItems} />
-    </section>
+    <>
+      {/* FAQ Schema.org para rich snippets */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      
+      <section ref={sectionRef} className="my-16 md:my-20 opacity-0">
+        <h2 className="text-3xl md:text-4xl font-medium text-center mb-10 text-text">
+          Frequently asked questions
+        </h2>
+        <Accordion items={faqItems} />
+      </section>
+    </>
   );
 }

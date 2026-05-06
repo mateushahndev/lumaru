@@ -3,6 +3,19 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact Us | Lumaru",
   description: "Get in touch with Lumaru customer support for questions about orders, products, or partnerships.",
+  openGraph: {
+    title: "Contact Us | Lumaru",
+    description: "Get in touch with Lumaru customer support for questions about orders, products, or partnerships.",
+    url: "https://lumaruskin.com/contact",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://lumaruskin.com/contact",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function ContactPage() {

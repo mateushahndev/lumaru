@@ -75,19 +75,18 @@ export default function Benefits() {
           >
             {/* Image Block */}
             <div className={benefit.reverse ? "md:order-last" : ""}>
-              <div className="bg-gradient-to-br from-primary-light/20 to-primary-light/5 rounded-2xl p-6 text-center hover:shadow-lg transition-all duration-300">
-                {/* Container com altura automática para respeitar proporção da imagem */}
-                <div className="relative w-full rounded-2xl overflow-hidden">
+              <div className="bg-gradient-to-br from-primary-light/20 to-primary-light/5 rounded-2xl p-6 text-center transition-all duration-300 hover:shadow-lg">
+                <div className="relative w-full rounded-2xl overflow-hidden transition-transform duration-500 group-hover:scale-[1.02]">
                   <Image
                     src={benefit.imageSrc}
                     alt={benefit.imageLabel}
                     width={600}
                     height={400}
-                    className="w-full h-auto rounded-2xl"
+                    className="w-full h-auto rounded-2xl transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
-                <div className="text-sm text-primary/70 font-medium mt-4">
+                <div className="text-sm text-primary/70 font-medium mt-4 transition-all duration-300">
                   {benefit.imageLabel}
                 </div>
               </div>
@@ -106,7 +105,7 @@ export default function Benefits() {
               </p>
               <button
                 onClick={() => handleCTAClick(benefit.id)}
-                className="bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-2.5 rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-95"
+                className="bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-2.5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 active:scale-95"
               >
                 {benefit.id === 1 && "Get Awake Eye Complex →"}
                 {benefit.id === 2 && "Try the Difference →"}

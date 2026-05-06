@@ -36,7 +36,12 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-primary transition-colors duration-300">
+                <Link
+                  href="/blog"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors duration-300"
+                >
                   Blog
                 </Link>
               </li>

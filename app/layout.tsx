@@ -19,17 +19,15 @@ const playfair = Playfair_Display({
   weight: ["400", "500", "600", "700"],
 });
 
-// Metadados globais para SEO máximo
+// Metadados globais para SEO máximo (Foco EUA - Inglês)
 export const metadata: Metadata = {
   metadataBase: new URL("https://lumaruskin.com"),
   title: {
-    default: "Awake Eye Complex | Solução Premium para Olheiras | Lumaru",
+    default: "Awake Eye Complex | Premium Dark Circle Treatment | Lumaru",
     template: "%s | Lumaru",
   },
   description:
-    "Awake Eye Complex: creme para olheiras com Shea Butter, Ginkgo Biloba e Horse Chestnut. Redução comprovada em 89% em 28 dias. Vegano e Cruelty-Free.",
-  keywords:
-    "creme para olheiras, olhos cansados, tratamento olheiras, produtos veganos, skincare premium",
+    "Awake Eye Complex with Shea Butter, Ginkgo Biloba & Horse Chestnut. Clinically shown to reduce dark circles and under-eye puffiness in 28 days. Vegan & Cruelty-Free.",
   authors: [{ name: "Lumaru", url: "https://lumaruskin.com" }],
   creator: "Lumaru",
   publisher: "Lumaru",
@@ -39,9 +37,9 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "Awake Eye Complex - Pareça que dormiu bem mesmo sem dormir",
+    title: "Awake Eye Complex - Look like you slept well. Even when you didn't.",
     description:
-      "Reduza olheiras e olhos cansados em até 28 dias. Fórmula clean beauty com 3 ativos clínicos.",
+      "Reduce dark circles and tired eyes in up to 28 days. Clean beauty formula with 3 clinical-grade actives.",
     url: "https://lumaruskin.com",
     siteName: "Lumaru",
     images: [
@@ -49,7 +47,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Awake Eye Complex - Creme para Olheiras Lumaru",
+        alt: "Awake Eye Complex - Lumaru Dark Circle Treatment",
       },
     ],
     locale: "en_US",
@@ -58,7 +56,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Awake Eye Complex - Lumaru",
-    description: "Pareça que dormiu bem mesmo sem dormir",
+    description: "Look like you slept well. Even when you didn't.",
     images: ["/twitter-image.jpg"],
   },
   robots: {
@@ -74,7 +72,14 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://lumaruskin.com",
+    languages: {
+      "en-US": "https://lumaruskin.com",
+    },
   },
+  // Opcional: Adicione após verificar no Google Search Console
+  // verification: {
+  //   google: "seu-codigo-aqui",
+  // },
 };
 
 // Viewport separado (Next.js 14+)
@@ -91,7 +96,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="en-US" className={`${inter.variable} ${playfair.variable}`}>
       <body className="font-sans antialiased bg-background text-text">
         {children}
       </body>

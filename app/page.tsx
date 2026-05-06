@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
 import Badges from "@/components/landing/Badges";
@@ -12,13 +11,27 @@ import FAQ from "@/components/landing/FAQ";
 import FinalCTA from "@/components/landing/FinalCTA";
 import Footer from "@/components/landing/Footer";
 
+// Metadados específicos para a página inicial
+export const metadata: Metadata = {
+  title: "Awake Eye Complex | Natural Eye Cream for Dark Circles & Puffiness",
+  description: "Target the real cause of dark circles. Formulated with Ginkgo Biloba, Shea Butter & Horse Chestnut. COSMOS Natural certified, vegan, and cruelty-free.",
+  alternates: {
+    canonical: "https://lumaruskin.com",
+  },
+  openGraph: {
+    title: "Awake Eye Complex — Look Rested. Even When You're Not.",
+    description: "The eye cream that targets microcirculation, hydration, and puffiness with 3 organic actives and multi-molecular Hyaluronic Acid.",
+    url: "https://lumaruskin.com",
+    type: "website",
+  },
+};
+
 // Schema.org estruturado para SEO
 const productSchema = {
   "@context": "https://schema.org/",
   "@type": "Product",
   name: "Awake Eye Complex",
-  description:
-    "Creme para olheiras com Shea Butter, Ginkgo Biloba e Horse Chestnut. Redução comprovada em 89% em 28 dias.",
+  description: "Dark circle eye cream with Shea Butter, Ginkgo Biloba, and Horse Chestnut. Multi-molecular Hyaluronic Acid for instant hydration. COSMOS Natural certified. Vegan and cruelty-free.",
   brand: {
     "@type": "Brand",
     name: "Lumaru",
@@ -30,13 +43,9 @@ const productSchema = {
     availability: "https://schema.org/InStock",
     priceValidUntil: "2026-12-31",
   },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.8",
-    reviewCount: "2150",
-  },
 };
 
+// Depoimentos
 const testimonialsSet1 = [
   {
     id: 1,

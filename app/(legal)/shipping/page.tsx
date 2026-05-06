@@ -2,8 +2,20 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Shipping Policy | Lumaru",
-  description: "Learn about Lumaru's shipping policy, delivery times, and shipping costs.",
-  robots: "noindex, follow",
+  description: "Learn about Lumaru's shipping policy, delivery times, and shipping costs. Ships to all 50 US states. Processing: 2-5 business days.",
+  openGraph: {
+    title: "Shipping Policy | Lumaru",
+    description: "Learn about Lumaru's shipping policy, delivery times, and shipping costs. Ships to all 50 US states.",
+    url: "https://lumaruskin.com/shipping",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://lumaruskin.com/shipping",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function ShippingPage() {

@@ -39,6 +39,7 @@ export default function Hero() {
             <span className="text-text/70 text-sm">Clean science for tired eyes</span>
           </div>
 
+          {/* H1 correto - ✅ OK */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.2] tracking-tight text-text">
             Wake up looking{" "}
             <span className="text-primary">rested.</span>
@@ -75,17 +76,13 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* SOLUÇÃO 1: SOMENTE GRADIENTE INVERTIDO - sem sombra */}
+        {/* Right Column - Product Image */}
         <div className="relative opacity-0 animate-fade-in-up [animation-delay:400ms]">
-          {/* 
-            Gradiente diagonal da esquerda (claro) para direita (escuro)
-            from-top-left (claro) → to-bottom-right (escuro)
-          */}
           <div className="bg-gradient-to-br from-primary-light/5 to-primary-light/35 rounded-2xl p-8 md:p-12">
             <div className="relative w-full aspect-square max-w-[320px] mx-auto rounded-2xl overflow-hidden">
               <Image
                 src="/images/hero/product.png"
-                alt="Awake Eye Complex - Creme para olheiras Lumaru"
+                alt="Awake Eye Complex - Lumaru dark circle treatment cream"
                 fill
                 className="object-contain"
                 priority

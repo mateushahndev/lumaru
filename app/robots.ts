@@ -5,8 +5,10 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: [],
+      disallow: [], // Todas as páginas são públicas
     },
     sitemap: "https://lumaruskin.com/sitemap.xml",
+    // Opcional: adicionar host
+    host: "https://lumaruskin.com",
   };
 }

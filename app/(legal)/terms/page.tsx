@@ -2,8 +2,20 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms of Service | Lumaru",
-  description: "Read Lumaru's terms of service for using our website and purchasing products.",
-  robots: "noindex, follow",
+  description: "Read Lumaru's terms of service for using our website and purchasing products. Governing law: North Carolina.",
+  openGraph: {
+    title: "Terms of Service | Lumaru",
+    description: "Read Lumaru's terms of service for using our website and purchasing products. Governing law: North Carolina.",
+    url: "https://lumaruskin.com/terms",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://lumaruskin.com/terms",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function TermsPage() {

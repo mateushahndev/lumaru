@@ -3,7 +3,19 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy | Lumaru",
   description: "Read Lumaru's privacy policy to understand how we collect, use, and protect your personal information.",
-  robots: "noindex, follow",
+  openGraph: {
+    title: "Privacy Policy | Lumaru",
+    description: "Read Lumaru's privacy policy to understand how we collect, use, and protect your personal information.",
+    url: "https://lumaruskin.com/privacy",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://lumaruskin.com/privacy",
+  },
+  robots: {
+    index: false,  // Páginas legais não precisam ser indexadas
+    follow: true,
+  },
 };
 
 export default function PrivacyPage() {

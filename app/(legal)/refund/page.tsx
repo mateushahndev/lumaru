@@ -2,8 +2,20 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Return & Refund Policy | Lumaru",
-  description: "Read Lumaru's return and refund policy for damaged or defective products.",
-  robots: "noindex, follow",
+  description: "Read Lumaru's return and refund policy for damaged or defective products. 7-day claim window, full refunds for manufacturing issues.",
+  openGraph: {
+    title: "Return & Refund Policy | Lumaru",
+    description: "Read Lumaru's return and refund policy for damaged or defective products. 7-day claim window, full refunds for manufacturing issues.",
+    url: "https://lumaruskin.com/refund",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://lumaruskin.com/refund",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function RefundPage() {

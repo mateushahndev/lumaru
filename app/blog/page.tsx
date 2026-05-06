@@ -1,10 +1,24 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 import { getAllPosts, BlogPost } from "../../lib/blog";
 
-export const metadata = {
-  title: "Blog | Lumaru",
-  description: "Skincare tips, ingredient deep-dives, and real talk about tired eyes.",
+export const metadata: Metadata = {
+  title: "Skincare Blog | Lumaru",
+  description: "Evidence-based skincare tips, ingredient deep-dives, and real talk about tired eyes. Learn what actually works for dark circles and under-eye concerns.",
+  openGraph: {
+    title: "Lumaru Blog — Skincare Tips & Ingredient Deep-Dives",
+    description: "Evidence-based skincare tips, ingredient deep-dives, and real talk about tired eyes.",
+    url: "https://lumaruskin.com/blog",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://lumaruskin.com/blog",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default async function BlogPage() {
@@ -41,6 +55,7 @@ export default async function BlogPage() {
                       alt={post.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   </div>
                 )}

@@ -7,8 +7,6 @@ category: "Announcement"
 readTime: 3
 ---
 
-# Welcome to the Lumaru Blog
-
 Hi there. If you're reading this, you're probably tired of looking tired.
 
 We started Lumaru because we couldn't find an eye cream that actually worked for dark circles and puffiness. Everything just... moisturized. And while hydration is important, it doesn't fix stagnant microcirculation or fluid buildup.
