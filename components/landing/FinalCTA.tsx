@@ -83,7 +83,7 @@ export default function FinalCTA() {
             </button>
 
             <p className="text-xs text-white/50 text-center">
-              Satisfaction guaranteed · No hidden fees
+              Ships from the US · No hidden fees
             </p>
           </div>
         </div>

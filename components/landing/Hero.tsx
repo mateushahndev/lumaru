@@ -70,7 +70,7 @@ export default function Hero() {
             </button>
 
             <p className="text-sm text-text/50 text-center sm:text-left">
-              Satisfaction guaranteed · No subscriptions
+              Fast shipping from the US · No subscriptions
             </p>
           </div>
         </div>
