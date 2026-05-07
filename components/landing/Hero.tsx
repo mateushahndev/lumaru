@@ -82,7 +82,7 @@ export default function Hero() {
             <div className="relative w-full aspect-square max-w-[320px] mx-auto rounded-2xl overflow-hidden">
               <Image
                 src="/images/hero/product.png"
-                alt="Awake Eye Complex - Lumaru dark circle treatment cream"
+                alt="Awake Eye Complex"
                 fill
                 className="object-contain"
                 priority

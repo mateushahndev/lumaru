@@ -49,7 +49,8 @@ export default async function BlogPage() {
                 className="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
               >
                 {post.coverImage && (
-                  <div className="relative h-48 w-full overflow-hidden">
+                  // Card: altura fixa de 200px (proporção ~16:9 para largura ~350px)
+                  <div className="relative w-full" style={{ aspectRatio: "16/9" }}>
                     <Image
                       src={post.coverImage}
                       alt={post.title}

@@ -109,12 +109,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           <article className="prose prose-lg max-w-none">
             {post.coverImage && (
-              <div className="relative h-[400px] w-full rounded-2xl overflow-hidden mb-8">
+              // Imagem sem cortes: usa object-contain para mostrar a imagem inteira
+              <div className="relative w-full min-h-[200px] md:min-h-[300px] rounded-2xl overflow-hidden bg-primary-light/10 mb-8">
                 <Image
                   src={post.coverImage}
                   alt={post.title}
-                  fill
-                  className="object-cover"
+                  width={1200}
+                  height={675}
+                  className="w-full h-auto rounded-2xl"
                   priority
                   sizes="(max-width: 768px) 100vw, 800px"
                 />
