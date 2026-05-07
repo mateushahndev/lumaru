@@ -94,7 +94,7 @@ export default function FinalCTA() {
           <div className="w-full max-w-[380px] mx-auto">
             <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
               <Image
-                src="/images/final-cta/product-box-cta.png"
+                src="/images/final-cta/product-box-cta01.png"
                 alt="Awake Eye Complex - Produto Lumaru"
                 fill
                 className="object-contain"
