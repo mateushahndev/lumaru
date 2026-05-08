@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import { GoogleAnalytics } from '@next/third-parties/google';
+import Script from "next/script";
 import "./globals.css";
 
 // Configuração otimizada das fontes com pré-carregamento
@@ -76,10 +78,6 @@ export const metadata: Metadata = {
       "en-US": "https://lumaruskin.com",
     },
   },
-  // Opcional: Adicione após verificar no Google Search Console
-  // verification: {
-  //   google: "seu-codigo-aqui",
-  // },
 };
 
 // Viewport separado (Next.js 14+)
@@ -100,6 +98,18 @@ export default function RootLayout({
       <body className="font-sans antialiased bg-background text-text">
         {children}
       </body>
+      {/* Google Analytics 4 */}
+      <GoogleAnalytics gaId="G-TS8PPQ5WKC" />
+      {/* Microsoft Clarity */}
+      <Script id="clarity-script" strategy="afterInteractive">
+        {`
+          (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "wny6yx4g");
+        `}
+      </Script>
     </html>
   );
 }
