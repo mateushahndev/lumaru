@@ -79,6 +79,13 @@ export const metadata: Metadata = {
       "en-US": "https://lumaruskin.com",
     },
   },
+  // Verificação do Pinterest
+  verification: {
+    pinterest: "629a36d0ebf7fe0bdbfdf16cba1cefb0",
+    other: {
+      "p:domain_verify": "629a36d0ebf7fe0bdbfdf16cba1cefb0",
+    },
+  },
 };
 
 // Viewport separado (Next.js 14+)
@@ -96,6 +103,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-US" className={`${inter.variable} ${playfair.variable}`}>
+      <head />
       <body className="font-sans antialiased bg-background text-text">
         {children}
         {/* Exit Intent Popup */}
