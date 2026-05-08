@@ -46,6 +46,11 @@ const nextConfig: NextConfig = {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=()",
           },
+          // Content-Security-Policy para permitir Google Analytics e Clarity
+          {
+            key: "Content-Security-Policy",
+            value: "default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.clarity.ms 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.clarity.ms; connect-src 'self' https://*.google-analytics.com https://*.clarity.ms; frame-src 'self' https://*.clarity.ms;",
+          },
         ],
       },
       {
@@ -69,7 +74,7 @@ const nextConfig: NextConfig = {
     ];
   },
   
-  // Redirects: www para non-www
+  // Redirects: www para non-www E Vercel para domínio principal
   async redirects() {
     return [
       {
@@ -78,6 +83,18 @@ const nextConfig: NextConfig = {
           {
             type: "host",
             value: "www.lumaruskin.com",
+          },
+        ],
+        destination: "https://lumaruskin.com/:path*",
+        permanent: true,
+      },
+      // Redirect do domínio da Vercel para o domínio principal
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "lumaru.vercel.app",
           },
         ],
         destination: "https://lumaruskin.com/:path*",
