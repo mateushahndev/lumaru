@@ -82,6 +82,14 @@ export default function Footer() {
                   Return & Refund
                 </a>
               </li>
+              <li>
+                <Link 
+                  href="/track-order" 
+                  className="hover:text-primary transition-colors duration-300"
+                >
+                  Track Your Order
+                </Link>
+              </li>
             </ul>
           </div>
 
