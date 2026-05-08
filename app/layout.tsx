@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from "next/script";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 import "./globals.css";
 
 // Configuração otimizada das fontes com pré-carregamento
@@ -97,6 +98,8 @@ export default function RootLayout({
     <html lang="en-US" className={`${inter.variable} ${playfair.variable}`}>
       <body className="font-sans antialiased bg-background text-text">
         {children}
+        {/* Exit Intent Popup */}
+        <ExitIntentPopup />
       </body>
       {/* Google Analytics 4 */}
       <GoogleAnalytics gaId="G-TS8PPQ5WKC" />
