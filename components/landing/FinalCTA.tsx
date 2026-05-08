@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const benefits = [
   "Micro-Circulation Awakening Complex + Hyaluronic Acid — targets the root cause and hydrates instantly",
@@ -12,6 +12,7 @@ const benefits = [
 
 export default function FinalCTA() {
   const sectionRef = useRef<HTMLElement>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -32,9 +33,26 @@ export default function FinalCTA() {
     return () => observer.disconnect();
   }, []);
 
-  const handleCTAClick = () => {
-    // Implementar lógica de compra (ex: redirecionar para checkout)
-    alert("Redirect to checkout - Implement payment flow here");
+  const handleCTAClick = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          success_url: "https://lumaruskin.com/success",
+          cancel_url: "https://lumaruskin.com",
+        }),
+      });
+
+      const { url } = await response.json();
+      window.location.href = url;
+    } catch (error) {
+      console.error("Checkout error:", error);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -77,9 +95,10 @@ export default function FinalCTA() {
 
             <button
               onClick={handleCTAClick}
-              className="w-full bg-primary hover:bg-primary-dark text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
+              disabled={isLoading}
+              className="w-full bg-primary hover:bg-primary-dark text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Get My Awake Eye Complex — $35.90 →
+              {isLoading ? "Redirecting to checkout..." : "Get My Awake Eye Complex — $35.90 →"}
             </button>
 
             <p className="text-xs text-white/50 text-center">
@@ -90,12 +109,11 @@ export default function FinalCTA() {
 
         {/* Right Column - Product Mockup */}
         <div className="bg-primary/10 rounded-xl p-8 text-center flex flex-col items-center justify-center">
-          {/* Container com a imagem do produto - quase lá */}
           <div className="w-full max-w-[380px] mx-auto">
             <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
               <Image
                 src="/images/final-cta/product-box-cta01.png"
-                alt="Awake Eye Complex - Produto Lumaru"
+                alt="Awake Eye Complex - Lumaru"
                 fill
                 className="object-contain"
                 sizes="(max-width: 768px) 100vw, 380px"
@@ -104,7 +122,6 @@ export default function FinalCTA() {
             </div>
           </div>
 
-          {/* Preço abaixo da imagem */}
           <div className="mt-6 text-center">
             <div className="text-white/50 text-sm line-through">$41.90</div>
             <div className="text-3xl font-bold text-primary mt-1">$35.90</div>
