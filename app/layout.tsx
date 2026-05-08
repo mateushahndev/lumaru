@@ -81,7 +81,6 @@ export const metadata: Metadata = {
   },
   // Verificação do Pinterest
   verification: {
-    pinterest: "629a36d0ebf7fe0bdbfdf16cba1cefb0",
     other: {
       "p:domain_verify": "629a36d0ebf7fe0bdbfdf16cba1cefb0",
     },
