@@ -15,17 +15,20 @@ export default function ExitIntentPopup() {
     return pathname?.includes("/checkout") || pathname?.includes("/success");
   };
 
-  // Verificar se é dispositivo móvel
-  const isMobile = () => {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      typeof navigator !== "undefined" ? navigator.userAgent : ""
-    );
-  };
-
   // Fechar popup
   const closePopup = useCallback(() => {
     setIsOpen(false);
   }, []);
+
+  // Manipular ESC key
+  const handleEsc = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isOpen) {
+        closePopup();
+      }
+    },
+    [isOpen, closePopup]
+  );
 
   // Submeter email para MailerLite
   const handleSubmit = async (e: React.FormEvent) => {
@@ -67,13 +70,13 @@ export default function ExitIntentPopup() {
     }
   };
 
-  // Detectar tentativa de saída da página - método universal
+  // Detectar tentativa de saída da página
   useEffect(() => {
     // Verificar se já mostrou antes
     const alreadyShown = localStorage.getItem("lumaru_popup_shown");
     
     // Não mostrar se já mostrou ou se está em checkout
-    if (alreadyShown || isCheckoutPage() || isMobile()) {
+    if (alreadyShown || isCheckoutPage()) {
       return;
     }
 
@@ -85,43 +88,56 @@ export default function ExitIntentPopup() {
       isPopupReady = true;
     }, 3000);
 
-    // LISTENER PRINCIPAL: Antes de sair da página
+    // Detectar quando o usuário tenta sair da página
     const handleBeforeUnload = (e: BeforeUnloadEvent) => {
       if (!isPopupReady) return;
       
-      // Verificar se o modal não está aberto e se não é mobile
-      if (!isOpen && !localStorage.getItem("lumaru_popup_shown")) {
-        // Precisamos mostrar o popup - mas antes, cancelar a saída
-        e.preventDefault();
-        e.returnValue = "";
-        
-        // Mostrar popup após um pequeno delay (Firefox precisa de interação)
-        setTimeout(() => {
-          setIsOpen(true);
-          localStorage.setItem("lumaru_popup_shown", "true");
-        }, 100);
-        
-        return false;
-      }
+      // Mostrar popup (não pode ser feito diretamente no beforeunload)
+      // Em vez disso, usamos um alerta ou preparamos para mostrar no history push
+      e.preventDefault();
+      e.returnValue = "";
     };
 
-    // Listener para quando o usuário tenta recarregar a página
-    const handlePageHide = () => {
-      if (isPopupReady && !isOpen && !localStorage.getItem("lumaru_popup_shown")) {
-        // Salvar que o popup foi mostrado para não aparecer de novo
-        localStorage.setItem("lumaru_popup_shown", "true");
-      }
+    // Detectar clique no botão voltar (popstate)
+    const handlePopState = () => {
+      if (!isPopupReady) return;
+      
+      // Mostrar popup
+      setIsOpen(true);
+      localStorage.setItem("lumaru_popup_shown", "true");
+      
+      // Adicionar um estado no histórico para evitar loop
+      window.history.pushState(null, "", window.location.href);
     };
 
+    // Adicionar um estado inicial no histórico para capturar o clique em voltar
+    window.history.pushState(null, "", window.location.href);
+
+    // Listeners
     window.addEventListener("beforeunload", handleBeforeUnload);
-    window.addEventListener("pagehide", handlePageHide);
+    window.addEventListener("popstate", handlePopState);
 
     return () => {
       clearTimeout(timeout);
       window.removeEventListener("beforeunload", handleBeforeUnload);
-      window.removeEventListener("pagehide", handlePageHide);
+      window.removeEventListener("popstate", handlePopState);
     };
-  }, [isCheckoutPage, pathname, isOpen]);
+  }, [isCheckoutPage, pathname]);
+
+  // Listener para tecla ESC
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener("keydown", handleEsc);
+      document.body.style.overflow = "hidden";
+    } else {
+      document.removeEventListener("keydown", handleEsc);
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.removeEventListener("keydown", handleEsc);
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen, handleEsc]);
 
   if (!isOpen) return null;
 
@@ -161,7 +177,7 @@ export default function ExitIntentPopup() {
             {status === "success" ? (
               <div className="bg-green-50 text-green-700 p-4 rounded-lg mb-4">
                 <p className="font-semibold">Your 10% off code WELCOME10 is ready!</p>
-                <p className="text-sm mt-1">Use it at checkout.</p>
+                <p className="text-sm mt-1">Use it at checkout. Code copied to clipboard!</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
