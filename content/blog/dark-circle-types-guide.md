@@ -36,9 +36,9 @@ Treating the wrong type means wasting time, money, and the mental energy of hopi
 **The test:** Gently stretch the skin under your eye with two fingers. If the color lightens or fades — vascular dark circles are likely the culprit.
 
 **What actually works:**
-* **Ginkgo Biloba** — this herb has a long history of supporting microcirculation. It helps blood move more freely through the capillaries rather than pooling. It's one of the active ingredients in Lumaru's [Awake Eye Complex](/) for this exact reason.
-* **Cold compresses** — a cold spoon or chilled eye mask in the morning helps constrict blood vessels and reduce the visible pooling temporarily.
-* **Sleeping with your head slightly elevated** — this reduces overnight fluid and blood accumulation around the eyes.
+- **Ginkgo Biloba** — this herb has a long history of supporting microcirculation. It helps blood move more freely through the capillaries rather than pooling. It's one of the active ingredients in Lumaru's [Awake Eye Complex](/) for this exact reason.
+- **Cold compresses** — a cold spoon or chilled eye mask in the morning helps constrict blood vessels and reduce the visible pooling temporarily.
+- **Sleeping with your head slightly elevated** — this reduces overnight fluid and blood accumulation around the eyes.
 
 **What doesn't work:** Brightening ingredients alone won't touch this. The tint isn't caused by pigment — it's caused by what's happening below the skin. Vitamin C and kojic acid have their place, but not here.
 
@@ -53,9 +53,9 @@ Treating the wrong type means wasting time, money, and the mental energy of hopi
 **The test:** Stretch the skin gently under your eye. If the color stays essentially the same — it's pigmentary. The pigment lives in the skin itself, so pulling it taut won't change it.
 
 **What actually works:**
-* **Sunscreen, every day** — UV exposure stimulates melanin production. This is non-negotiable for pigmentary dark circles. Skipping it undoes everything else.
-* **Gentle antioxidants** — vitamin C in a low concentration (5–10%) can help reduce melanin over time without irritating the delicate under-eye area.
-* **Stop rubbing** — friction triggers inflammation, and inflammation triggers more pigment production. Breaking this habit matters more than most people realize.
+- **Sunscreen, every day** — UV exposure stimulates melanin production. This is non-negotiable for pigmentary dark circles. Skipping it undoes everything else.
+- **Gentle antioxidants** — vitamin C in a low concentration (5–10%) can help reduce melanin over time without irritating the delicate under-eye area.
+- **Stop rubbing** — friction triggers inflammation, and inflammation triggers more pigment production. Breaking this habit matters more than most people realize.
 
 **What doesn't work:** Circulation-boosting ingredients. The blood flow under your eyes is perfectly fine — the melanin is the issue. Targeting the wrong mechanism won't produce results.
 
@@ -70,9 +70,9 @@ Treating the wrong type means wasting time, money, and the mental energy of hopi
 **The test:** Tilt your face toward a soft, indirect light source — like a window. If the shadow shifts, shrinks, or almost disappears at certain angles, it's structural. Color-based dark circles won't behave that way.
 
 **What actually works:**
-* **Deep hydration to plump the skin** — ingredients like **Shea Butter** can help restore moisture and elasticity to the under-eye area, softening the appearance of hollowing over time.
-* **Hyaluronic acid** — draws water into the skin for temporary volume. Not a permanent fix, but it helps visibly.
-* **Consistent, quality sleep** — tissue repair happens during sleep. Chronic sleep deprivation accelerates volume loss around the eyes.
+- **Deep hydration to plump the skin** — ingredients like **Shea Butter** can help restore moisture and elasticity to the under-eye area, softening the appearance of hollowing over time.
+- **Hyaluronic acid** — draws water into the skin for temporary volume. Not a permanent fix, but it helps visibly.
+- **Consistent, quality sleep** — tissue repair happens during sleep. Chronic sleep deprivation accelerates volume loss around the eyes.
 
 **What doesn't work:** Brightening creams or circulation boosters. The skin color isn't the issue here — the contour is. These products can't fill a hollow.
 
@@ -87,19 +87,19 @@ Treating the wrong type means wasting time, money, and the mental energy of hopi
 **The test:** You recognize yourself in more than one description above.
 
 **What actually works:**
-* **Layer your approach** — start by supporting circulation with **Ginkgo Biloba**, add deep hydration with **Shea Butter**, then address pigment with consistent sun protection. Tackle them one at a time rather than all at once.
-* **Give it time** — mixed types take longer to show improvement. Four to six weeks of consistent care is a realistic starting point.
-* **Reduce variables** — poor sleep, high sodium, alcohol, and eye rubbing all worsen mixed circles. Lifestyle factors have a larger impact when multiple causes are active at once.
+- **Layer your approach** — start by supporting circulation with **Ginkgo Biloba**, add deep hydration with **Shea Butter**, then address pigment with consistent sun protection. Tackle them one at a time rather than all at once.
+- **Give it time** — mixed types take longer to show improvement. Four to six weeks of consistent care is a realistic starting point.
+- **Reduce variables** — poor sleep, high sodium, alcohol, and eye rubbing all worsen mixed circles. Lifestyle factors have a larger impact when multiple causes are active at once.
 
 **What doesn't work:** Expecting one ingredient to do everything. Mixed dark circles require a layered strategy, not a single hero product.
 
 ---
 
-## How to Find Your Type
+### You just identified your type. Now what?
 
-If you're still not sure which category you fall into, the [Dark Circle Type Finder](/tools/dark-circle-type-finder) can help. It asks a few simple questions about what your dark circles look like, when they're worse, and how they behave — and gives you a clear answer in under two minutes.
+Take the 60-second Dark Circle Type Finder to get a personalized recommendation based on your specific type — no guessing, no wasted money.
 
-Knowing your type isn't just interesting information. It's the difference between choosing something that addresses the root cause and spending another year on creams that weren't designed for you.
+[Find My Type →](/tools/dark-circle-type-finder)
 
 ---
 
@@ -107,7 +107,19 @@ Knowing your type isn't just interesting information. It's the difference betwee
 
 Resist the urge to overhaul your entire routine at once. Pick one change that matches your type and stick to it for at least four weeks before deciding if it's working. Consistency matters more than complexity.
 
-If your type is vascular or you're dealing with puffiness alongside dark circles, the Awake Eye Complex was formulated specifically for that combination — Ginkgo Biloba for circulation, Horse Chestnut for capillary strength, Shea Butter for deep hydration. It won't address pigmentary or purely structural concerns, and we'd rather be honest about that than oversell. If you're unsure where to start, go back to [the tool](/tools/dark-circle-type-finder) and let your type guide your next step.
+---
+
+### For Vascular & Mixed Types
+
+If your type is vascular or mixed — meaning circulation and puffiness are part of the picture — the **Awake Eye Complex** was formulated specifically for that combination. Ginkgo Biloba for microcirculation. Horse Chestnut for capillary strength. Shea Butter for deep hydration that lasts.
+
+It won't address pigmentary or purely structural concerns, and we'd rather be honest about that than oversell.
+
+[Learn More →](/)
+
+---
+
+If you're unsure where to start, go back to [the tool](/tools/dark-circle-type-finder) and let your type guide your next step.
 
 ---
 
