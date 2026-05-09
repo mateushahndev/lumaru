@@ -1,23 +1,18 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { usePathname } from "next/navigation";
 
 export default function ExitIntentPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const pathname = usePathname();
 
-  // Verificar se é dispositivo móvel
-  const isMobile = () => {
-    if (typeof window === "undefined") return false;
-    return window.innerWidth < 768;
-  };
-
-  // Verificar se já está em checkout (opcional)
+  // Verificar se já está em checkout
   const isCheckoutPage = () => {
-    if (typeof window === "undefined") return false;
-    return window.location.pathname.includes("/checkout");
+    return pathname?.includes("/checkout") || pathname?.includes("/success");
   };
 
   // Fechar popup
@@ -39,7 +34,6 @@ export default function ExitIntentPopup() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Validação básica
     if (!email || !email.includes("@")) {
       setErrorMessage("Please enter a valid email address");
       setStatus("error");
@@ -63,7 +57,6 @@ export default function ExitIntentPopup() {
       if (response.ok) {
         setStatus("success");
         localStorage.setItem("lumaru_popup_shown", "true");
-        // Fechar após 3 segundos no sucesso
         setTimeout(() => {
           closePopup();
         }, 3000);
@@ -77,38 +70,59 @@ export default function ExitIntentPopup() {
     }
   };
 
-  // Configurar exit-intent listener
+  // Detectar tentativa de saída da página
   useEffect(() => {
     // Verificar se já mostrou antes
     const alreadyShown = localStorage.getItem("lumaru_popup_shown");
     
-    // Não mostrar se já mostrou, se é mobile, ou se é checkout
-    if (alreadyShown || isMobile() || isCheckoutPage()) {
+    // Não mostrar se já mostrou ou se está em checkout
+    if (alreadyShown || isCheckoutPage()) {
       return;
     }
 
     let timeout: NodeJS.Timeout;
-    let mouseLeaveTriggered = false;
+    let isPopupReady = false;
 
-    const handleMouseLeave = (e: MouseEvent) => {
-      // Só dispara se o mouse saiu pelo topo da página
-      if (e.clientY <= 0 && !mouseLeaveTriggered) {
-        mouseLeaveTriggered = true;
-        setIsOpen(true);
-        localStorage.setItem("lumaru_popup_shown", "true");
-      }
+    // Delay de 3 segundos antes de ativar o detector de saída
+    timeout = setTimeout(() => {
+      isPopupReady = true;
+    }, 3000);
+
+    // Detectar quando o usuário tenta sair da página
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (!isPopupReady) return;
+      
+      // Mostrar popup (não pode ser feito diretamente no beforeunload)
+      // Em vez disso, usamos um alerta ou preparamos para mostrar no history push
+      e.preventDefault();
+      e.returnValue = "";
     };
 
-    // Delay de 3 segundos antes de ativar o listener
-    timeout = setTimeout(() => {
-      document.addEventListener("mouseleave", handleMouseLeave);
-    }, 3000);
+    // Detectar clique no botão voltar (popstate)
+    const handlePopState = () => {
+      if (!isPopupReady) return;
+      
+      // Mostrar popup
+      setIsOpen(true);
+      localStorage.setItem("lumaru_popup_shown", "true");
+      
+      // Adicionar um estado no histórico para evitar loop
+      window.history.pushState(null, "", window.location.href);
+    };
+
+    // Adicionar um estado inicial no histórico para capturar o clique em voltar
+    window.history.pushState(null, "", window.location.href);
+
+    // Listeners
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    window.addEventListener("popstate", handlePopState);
 
     return () => {
       clearTimeout(timeout);
-      document.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+      window.removeEventListener("popstate", handlePopState);
     };
-  }, []);
+  }, [isCheckoutPage, pathname]);
 
   // Listener para tecla ESC
   useEffect(() => {
