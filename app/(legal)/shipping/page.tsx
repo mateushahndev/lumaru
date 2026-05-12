@@ -35,13 +35,13 @@ export default function ShippingPage() {
         {/* 2. Processing Time */}
         <section>
           <h2 className="text-xl font-semibold text-text mb-3">2. Processing Time</h2>
-          <p>Orders are processed within 2-5 business days after payment confirmation. Each product is made to order with care, which requires this processing window before shipment.</p>
+          <p>Orders are processed within 2-5 business days. Each Awake Eye Complex is made to order to ensure freshness — this takes a little more care than pulling from a warehouse shelf.</p>
         </section>
 
         {/* 3. Shipping Time */}
         <section>
           <h2 className="text-xl font-semibold text-text mb-3">3. Shipping Time</h2>
-          <p>All orders ship from our US-based fulfillment center. Delivery typically takes 3-7 business days after processing. You will receive a tracking number once your order ships.</p>
+          <p>All orders ship from our US fulfillment center. Delivery typically takes 3-7 business days after processing. Total delivery time: 5-12 business days from order to your door. You'll receive a tracking number as soon as your order ships.</p>
         </section>
 
         {/* 4. Shipping Rates */}
