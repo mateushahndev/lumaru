@@ -47,7 +47,7 @@ export default function ShippingPage() {
         {/* 4. Shipping Rates */}
         <section>
           <h2 className="text-xl font-semibold text-text mb-3">4. Shipping Rates</h2>
-          <p>Shipping costs are calculated at checkout based on your location and the weight of your order. The exact cost is displayed before you complete your purchase.</p>
+          <p>SStandard shipping to all 50 US states is $7.47 per order. The exact cost is displayed before you complete your purchase.</p>
         </section>
 
         {/* 5. Order Tracking */}
