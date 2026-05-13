@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 
-// Inicializa o Stripe com a chave secreta (sem fixar versão)
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 export async function POST(req: NextRequest) {
@@ -11,6 +10,7 @@ export async function POST(req: NextRequest) {
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
+      allow_promotion_codes: true, // ← NOVO: permite cupons de desconto
       line_items: [
         {
           price: process.env.STRIPE_PRICE_ID,
