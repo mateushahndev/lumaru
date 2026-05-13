@@ -32,8 +32,8 @@ export async function POST(req: NextRequest) {
             },
             display_name: "Standard Shipping",
             delivery_estimate: {
-              minimum: { unit: "business_day", value: 3 },
-              maximum: { unit: "business_day", value: 7 },
+              minimum: { unit: "business_day", value: 5 },
+              maximum: { unit: "business_day", value: 12 },
             },
           },
         },
