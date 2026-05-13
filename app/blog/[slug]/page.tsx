@@ -5,6 +5,8 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { Metadata } from "next";
 import { getAllPosts, getPostBySlug, BlogPost } from "../../../lib/blog";
+import BlogEmailBanner from "@/components/BlogEmailBanner";
+
 
 // Gerar rotas estáticas no build
 export async function generateStaticParams() {
@@ -151,21 +153,17 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </ReactMarkdown>
             </div>
           </article>
+        <BlogEmailBanner />
 
-          <div className="mt-12 pt-8 border-t border-primary-light/20 text-center">
-            <h3 className="text-xl font-semibold text-text mb-2">
-              Want more skincare tips?
-            </h3>
-            <p className="text-text/60 mb-4">
-              Check out our other articles or visit our blog homepage.
-            </p>
-            <Link
-              href="/blog"
-              className="bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-2.5 rounded-xl transition-all duration-300 inline-block"
-            >
-              Browse All Articles →
-            </Link>
-          </div>
+        {/* Opcional: manter link para outros artigos abaixo do banner */}
+        <div className="text-center mt-6">
+          <Link
+            href="/blog"
+            className="text-primary/70 hover:text-primary text-sm transition-colors"
+          >
+            ← Browse all articles
+          </Link>
+        </div>
         </div>
       </div>
     </>
