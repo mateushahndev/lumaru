@@ -2,7 +2,7 @@
 title: "Welcome to the Lumaru Blog"
 date: "2026-04-28"
 excerpt: "Why we started this blog and what you can expect from future posts about skincare, dark circles, and feeling awake."
-coverImage: "/images/blog/hello-world.jpg"
+coverImage: "/images/blog/hello-world.webp"
 category: "Announcement"
 readTime: 3
 ---
