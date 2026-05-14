@@ -52,6 +52,11 @@ export default function Footer() {
                   Our Standards
                 </Link>
               </li>
+              <li>
+                <Link href="/science" className="hover:text-primary transition-colors duration-300">
+                  The Science
+                </Link>
+              </li>
             </ul>
           </div>
 
