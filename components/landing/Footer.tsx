@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer className="bg-text/5 mt-20 py-12 border-t border-primary-light/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-5 gap-8">
           {/* Brand Column */}
           <div className="space-y-3">
             <div className="font-display text-2xl font-medium text-text">
@@ -19,7 +19,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Shop */}
           <div className="space-y-3">
             <h4 className="font-semibold text-text">Shop</h4>
             <ul className="space-y-2 text-sm text-text/60">
@@ -36,13 +36,20 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <Link
-                  href="/blog"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-primary transition-colors duration-300"
-                >
+                <Link href="/blog" className="hover:text-primary transition-colors duration-300">
                   Blog
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* About */}
+          <div className="space-y-3">
+            <h4 className="font-semibold text-text">About</h4>
+            <ul className="space-y-2 text-sm text-text/60">
+              <li>
+                <Link href="/our-standards" className="hover:text-primary transition-colors duration-300">
+                  Our Standards
                 </Link>
               </li>
             </ul>
@@ -81,14 +88,6 @@ export default function Footer() {
                 >
                   Return & Refund
                 </a>
-              </li>
-              <li>
-                <Link 
-                  href="/track-order" 
-                  className="hover:text-primary transition-colors duration-300"
-                >
-                  Track Your Order
-                </Link>
               </li>
             </ul>
           </div>
