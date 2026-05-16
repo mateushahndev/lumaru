@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 type Step = 1 | 2 | 3 | "loading" | "result";
@@ -82,6 +82,13 @@ const resultData = {
   },
 };
 
+// Helper para enviar eventos GA4
+const sendEvent = (eventName: string, params?: Record<string, any>) => {
+  if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+    (window as any).gtag("event", eventName, params);
+  }
+};
+
 export default function DarkCircleTypeFinder() {
   const [step, setStep] = useState<Step>(1);
   const [scores, setScores] = useState<Scores>({
@@ -91,6 +98,7 @@ export default function DarkCircleTypeFinder() {
     mixed: 0,
   });
   const [result, setResult] = useState<ResultType>(null);
+  const [hasStarted, setHasStarted] = useState(false);
   const router = useRouter();
 
   const progress = step === 1 ? 33 : step === 2 ? 66 : step === 3 ? 100 : 0;
@@ -103,6 +111,22 @@ export default function DarkCircleTypeFinder() {
     if (structural >= 2) return "structural";
     return "mixed";
   };
+
+  // Detectar primeira interação (tool_started)
+  useEffect(() => {
+    const hasAnyScore = scores.vascular > 0 || scores.pigmentary > 0 || scores.structural > 0 || scores.mixed > 0;
+    if (!hasStarted && hasAnyScore) {
+      setHasStarted(true);
+      sendEvent("tool_started", { tool_name: "dark_circle_type_finder" });
+    }
+  }, [scores, hasStarted]);
+
+  // Detectar conclusão (tool_completed)
+  useEffect(() => {
+    if (step === "result" && result) {
+      sendEvent("tool_completed", { tool_name: "dark_circle_type_finder" });
+    }
+  }, [step, result]);
 
   const handleAnswer = (type: keyof Scores) => {
     const newScores = { ...scores, [type]: scores[type] + 1 };
@@ -126,11 +150,20 @@ export default function DarkCircleTypeFinder() {
     setStep(1);
     setScores({ vascular: 0, pigmentary: 0, structural: 0, mixed: 0 });
     setResult(null);
+    setHasStarted(false);
   };
 
   const handleBack = () => {
     if (step === 2) setStep(1);
     if (step === 3) setStep(2);
+  };
+
+  const handleCtaClick = () => {
+    sendEvent("cta_clicked", {
+      cta_location: "tool_result",
+      cta_text: "Read the Complete Guide →"
+    });
+    router.push("/blog/dark-circle-types-guide");
   };
 
   // Loading State
@@ -199,7 +232,7 @@ export default function DarkCircleTypeFinder() {
               
               {/* CTA principal - vai para o blog */}
               <button
-                onClick={() => router.push("/blog/dark-circle-types-guide")}
+                onClick={handleCtaClick}
                 className="w-full py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg mb-4"
                 style={{ backgroundColor: data.accentColor, color: "white" }}
               >

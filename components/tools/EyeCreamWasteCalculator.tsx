@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Preço do Awake Eye Complex
 const PRODUCT_PRICE = 35.9;
@@ -9,6 +9,13 @@ const PRODUCT_PRICE = 35.9;
 const NETFLIX_YEARLY_COST = 155;
 const LATTE_PRICE = 5.5;
 
+// Helper para enviar eventos GA4
+const sendEvent = (eventName: string, params?: Record<string, any>) => {
+  if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+    (window as any).gtag("event", eventName, params);
+  }
+};
+
 export default function EyeCreamWasteCalculator() {
   const [creams, setCreams] = useState<number | "">("");
   const [avgPrice, setAvgPrice] = useState<number | "">("");
@@ -16,6 +23,22 @@ export default function EyeCreamWasteCalculator() {
   const [total, setTotal] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
+
+  // Detectar primeira interação (tool_started)
+  useEffect(() => {
+    if (!hasStarted && (creams !== "" || avgPrice !== "" || years !== "")) {
+      setHasStarted(true);
+      sendEvent("tool_started", { tool_name: "eye_cream_waste_calculator" });
+    }
+  }, [creams, avgPrice, years, hasStarted]);
+
+  // Detectar conclusão (tool_completed)
+  useEffect(() => {
+    if (showResult && total !== null) {
+      sendEvent("tool_completed", { tool_name: "eye_cream_waste_calculator" });
+    }
+  }, [showResult, total]);
 
   const validateAndCalculate = () => {
     setError(null);
