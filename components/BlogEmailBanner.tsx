@@ -2,6 +2,13 @@
 
 import { useState } from "react";
 
+// Helper para enviar eventos GA4
+const sendEvent = (eventName: string, params?: Record<string, any>) => {
+  if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+    (window as any).gtag("event", eventName, params);
+  }
+};
+
 export default function BlogEmailBanner() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -33,6 +40,13 @@ export default function BlogEmailBanner() {
       if (response.ok) {
         setStatus("success");
         setEmail("");
+        
+        // ✅ Disparar evento GA4 para email_captured
+        sendEvent("email_captured", { source: "blog_banner" });
+        
+        setTimeout(() => {
+          setStatus("idle");
+        }, 3000);
       } else {
         setErrorMessage(data.message || "Something went wrong. Please try again.");
         setStatus("error");
