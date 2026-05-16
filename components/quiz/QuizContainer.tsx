@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 interface Question {
@@ -28,19 +28,53 @@ interface QuizContainerProps {
   icon: string;
 }
 
+// Helper para enviar eventos GA4
+const sendEvent = (eventName: string, params?: Record<string, any>) => {
+  if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+    (window as any).gtag("event", eventName, params);
+  }
+};
+
+// Mapear título do quiz para nome amigável
+const getQuizName = (title: string): string => {
+  if (title === "The Insecurity Check") return "photo_insecurity";
+  if (title === "The Habits Check") return "making_dark_circles_worse";
+  return "unknown";
+};
+
 export default function QuizContainer({ questions, colors, title, icon }: QuizContainerProps) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
+  const [hasStarted, setHasStarted] = useState(false);
   const router = useRouter();
 
   const currentQuestion = questions[currentQuestionIndex];
   const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
 
+  // Detectar primeira resposta (quiz_started)
+  useEffect(() => {
+    if (!hasStarted && answers.length > 0) {
+      setHasStarted(true);
+      sendEvent("quiz_started", { quiz_name: getQuizName(title) });
+    }
+  }, [answers, hasStarted, title]);
+
+  // Detectar quando chega na última pergunta (isFinal) e ainda não começou
+  useEffect(() => {
+    if (currentQuestion?.isFinal && !hasStarted && answers.length === 0) {
+      // Caso raro: quiz com uma única pergunta final
+      sendEvent("quiz_started", { quiz_name: getQuizName(title) });
+      setHasStarted(true);
+    }
+  }, [currentQuestion, hasStarted, answers.length, title]);
+
   const handleAnswer = (answer: string) => {
     const newAnswers = [...answers, answer];
     setAnswers(newAnswers);
 
+    // Se for a última pergunta (isFinal), disparar quiz_completed antes de navegar
     if (currentQuestion.isFinal) {
+      sendEvent("quiz_completed", { quiz_name: getQuizName(title) });
       router.push("/");
       return;
     }
