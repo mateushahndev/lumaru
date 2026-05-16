@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
+import { sendEvent } from "@/lib/useGA4";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -26,6 +27,15 @@ export default function Navbar() {
   };
 
   const handleCheckout = async () => {
+    // ✅ ADICIONAR AQUI
+    sendEvent("cta_clicked", {
+      cta_location: "navbar_mobile_floating",
+      cta_text: "Buy Awake Eye Complex — $35.90 →"
+    });
+    sendEvent("checkout_started", { 
+      cta_text: "Buy Awake Eye Complex — $35.90 →" 
+    });
+    
     setIsLoading(true);
     try {
       const response = await fetch("/api/checkout", {
@@ -48,6 +58,12 @@ export default function Navbar() {
   };
 
   const handleCTAClick = () => {
+    // ✅ ADICIONAR AQUI
+    sendEvent("cta_clicked", {
+      cta_location: pathname === "/" ? "navbar_desktop" : "navbar_desktop_other_page",
+      cta_text: "Get Awake Eye Complex — $35.90 →"
+    });
+    
     // Se estiver na home, rola para o CTA final
     if (pathname === "/") {
       handleScrollToCTA();

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { sendEvent } from "@/lib/useGA4";
 
 export default function PainSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -25,6 +26,10 @@ export default function PainSection() {
   }, []);
 
   const handleCTAClick = () => {
+    sendEvent("cta_clicked", {
+      cta_location: "pain_section",
+      cta_text: "Show Me How It Works →"
+    });
     document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -49,9 +54,6 @@ export default function PainSection() {
         <p className="text-base md:text-lg text-white/80 leading-relaxed">
           The <strong className="text-primary">Awake Eye Complex</strong> is different. It targets the root cause — with 3 organic actives plus multi-molecular Hyaluronic Acid that wake up the skin under your eyes, not just sit on top of it.
         </p>
-        
-
-
 
         <button
           onClick={handleCTAClick}

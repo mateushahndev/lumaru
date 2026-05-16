@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { sendEvent } from "@/lib/useGA4";
 
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -26,6 +27,10 @@ export default function Hero() {
   }, []);
 
   const handleCTAClick = () => {
+    sendEvent("cta_clicked", {
+      cta_location: "landing_page_hero",
+      cta_text: "Yes, I Want Brighter Eyes →"
+    });
     document.getElementById("final-cta")?.scrollIntoView({ behavior: "smooth" });
   };
 

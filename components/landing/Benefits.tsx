@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { sendEvent } from "@/lib/useGA4";
 
 const benefits = [
   {
@@ -59,6 +60,15 @@ export default function Benefits() {
   }, []);
 
   const handleCTAClick = (benefitId: number) => {
+    const buttonText = benefitId === 1 ? "Get Awake Eye Complex →" 
+      : benefitId === 2 ? "Try the Difference →" 
+      : "Wake Up Different →";
+    
+    sendEvent("cta_clicked", {
+      cta_location: `benefits_card_${benefitId}`,
+      cta_text: buttonText
+    });
+    
     document.getElementById("final-cta")?.scrollIntoView({ behavior: "smooth" });
   };
 

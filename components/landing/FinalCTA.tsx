@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { sendEvent } from "@/lib/useGA4";
 
 const benefits = [
   "Micro-Circulation Awakening Complex + Hyaluronic Acid — targets the root cause and hydrates instantly",
@@ -34,6 +35,16 @@ export default function FinalCTA() {
   }, []);
 
   const handleCTAClick = async () => {
+    // ✅ ADICIONAR ESTAS DUAS LINHAS
+    sendEvent("cta_clicked", {
+      cta_location: "landing_page_final_cta",
+      cta_text: "Get My Awake Eye Complex — $35.90 →"
+    });
+    sendEvent("checkout_started", { 
+      cta_text: "Get My Awake Eye Complex — $35.90 →" 
+    });
+    
+    // RESTANTE DO CÓDIGO ORIGINAL (NÃO MEXER)
     setIsLoading(true);
     try {
       const response = await fetch("/api/checkout", {

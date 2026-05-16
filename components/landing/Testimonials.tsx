@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { sendEvent } from "@/lib/useGA4";
 
 interface Testimonial {
   id: number;
@@ -38,6 +39,10 @@ export default function Testimonials({ title, testimonials, showCTA = true }: Te
   }, []);
 
   const handleCTAClick = () => {
+    sendEvent("cta_clicked", {
+      cta_location: "testimonials_section",
+      cta_text: "I Want This →"
+    });
     document.getElementById("final-cta")?.scrollIntoView({ behavior: "smooth" });
   };
 
