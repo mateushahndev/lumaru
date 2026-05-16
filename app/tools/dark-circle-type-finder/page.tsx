@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import DarkCircleTypeFinder from "@/components/tools/DarkCircleTypeFinder";
+import Navbar from "@/components/landing/Navbar";
+import Footer from "@/components/landing/Footer";
 
 export const metadata: Metadata = {
   title: "Dark Circle Type Finder — Identify Your Under-Eye Concern | Lumaru",
@@ -19,46 +21,22 @@ export const metadata: Metadata = {
   },
 };
 
-// Schema.org enriquecido para MedicalWebPage
-const toolSchema = {
-  "@context": "https://schema.org",
-  "@type": "MedicalWebPage",
-  name: "Dark Circle Type Finder",
-  description: "Self-assessment tool to identify dark circle types based on dermatological classification.",
-  url: "https://lumaruskin.com/tools/dark-circle-type-finder",
-  audience: {
-    "@type": "Audience",
-    name: "Women concerned about under-eye dark circles",
-  },
-  about: {
-    "@type": "MedicalCondition",
-    name: "Dark circles under eyes",
-    associatedAnatomy: {
-      "@type": "AnatomicalStructure",
-      name: "Periorbital region",
-    },
-  },
-  mainEntity: {
-    "@type": "Quiz",
-    name: "Dark Circle Type Quiz",
-    description: "3-question assessment to identify dark circle type",
-  },
-  relatedLink: "https://lumaruskin.com/blog/dark-circle-types-guide",
-  significantLink: "https://lumaruskin.com/blog/dark-circle-types-guide",
-  medicalAudience: {
-    "@type": "MedicalAudience",
-    audienceType: "General public",
-  },
-};
+interface PageProps {
+  searchParams?: {
+    embed?: string;
+  };
+}
 
-export default function DarkCircleTypeFinderPage() {
+export default function DarkCircleTypeFinderPage({ searchParams }: PageProps) {
+  const isEmbedded = searchParams?.embed === "true";
+
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolSchema) }}
-      />
-      <DarkCircleTypeFinder />
+      {!isEmbedded && <Navbar />}
+      <main className="min-h-screen bg-background pt-20 md:pt-32 pb-20">
+        <DarkCircleTypeFinder />
+      </main>
+      {!isEmbedded && <Footer />}
     </>
   );
 }

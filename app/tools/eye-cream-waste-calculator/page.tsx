@@ -22,13 +22,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default function EyeCreamWasteCalculatorPage() {
+interface PageProps {
+  searchParams?: {
+    embed?: string;
+  };
+}
+
+export default function EyeCreamWasteCalculatorPage({ searchParams }: PageProps) {
+  const isEmbedded = searchParams?.embed === "true";
+
   return (
     <>
-      <main className="min-h-screen bg-background pt-20 pb-20">
+      <main className="min-h-screen bg-background pt-32 pb-20">
         <EyeCreamWasteCalculator />
       </main>
-      <Footer />
+      {/* Footer só aparece se NÃO for embed */}
+      {!isEmbedded && <Footer />}
     </>
   );
 }
