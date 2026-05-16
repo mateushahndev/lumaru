@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import DarkCircleTypeFinder from "@/components/tools/DarkCircleTypeFinder";
-import Navbar from "@/components/landing/Navbar";
-import Footer from "@/components/landing/Footer";
 
 export const metadata: Metadata = {
   title: "Dark Circle Type Finder — Identify Your Under-Eye Concern | Lumaru",
@@ -21,22 +19,7 @@ export const metadata: Metadata = {
   },
 };
 
-interface PageProps {
-  searchParams?: {
-    embed?: string;
-  };
-}
-
-export default function DarkCircleTypeFinderPage({ searchParams }: PageProps) {
-  const isEmbedded = searchParams?.embed === "true";
-
-  return (
-    <>
-      {!isEmbedded && <Navbar />}
-      <main className="min-h-screen bg-background pt-20 md:pt-32 pb-20">
-        <DarkCircleTypeFinder />
-      </main>
-      {!isEmbedded && <Footer />}
-    </>
-  );
+// Ferramenta tem layout próprio, NUNCA tem Nav/Footer
+export default function DarkCircleTypeFinderPage() {
+  return <DarkCircleTypeFinder />;
 }
