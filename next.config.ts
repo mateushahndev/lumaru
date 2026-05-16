@@ -5,22 +5,19 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 31536000, // 1 ano
+    minimumCacheTTL: 31536000,
     dangerouslyAllowSVG: false,
     remotePatterns: [],
   },
   
   compress: true,
-  
-  poweredByHeader: false, // Remove X-Powered-By header
-  
+  poweredByHeader: false,
   reactStrictMode: true,
   
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
   },
   
-  // Headers de segurança para SEO e performance
   async headers() {
     return [
       {
@@ -46,7 +43,7 @@ const nextConfig: NextConfig = {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=()",
           },
-          // Content-Security-Policy para permitir Google Analytics e Clarity
+          // ✅ CSP CORRIGIDA - permitindo Google Analytics
           {
             key: "Content-Security-Policy",
             value: "default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.clarity.ms 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.clarity.ms; connect-src 'self' https://*.google-analytics.com https://*.clarity.ms; frame-src 'self' https://*.clarity.ms;",
@@ -74,7 +71,6 @@ const nextConfig: NextConfig = {
     ];
   },
   
-  // Redirects: www para non-www E Vercel para domínio principal
   async redirects() {
     return [
       {
@@ -88,7 +84,6 @@ const nextConfig: NextConfig = {
         destination: "https://lumaruskin.com/:path*",
         permanent: true,
       },
-      // Redirect do domínio da Vercel para o domínio principal
       {
         source: "/:path*",
         has: [
