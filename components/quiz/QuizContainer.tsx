@@ -93,7 +93,7 @@ export default function QuizContainer({ questions, colors, title, icon }: QuizCo
         {/* Logo/Header diferenciado */}
         <div className="text-center mb-10">
           <div 
-            className="inline-block w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl"
+            className="w-12 h-12 rounded-2xl mb-4 flex items-center justify-center text-2xl"
             style={{ backgroundColor: colors.primary }}
           >
             {icon}
