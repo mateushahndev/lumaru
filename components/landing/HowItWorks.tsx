@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { sendEvent } from "@/lib/useGA4";
 
 const steps = [
   {
@@ -46,6 +47,10 @@ export default function HowItWorks() {
   }, []);
 
   const handleCTAClick = () => {
+    sendEvent("cta_clicked", {
+      cta_location: "how_it_works_section",
+      cta_text: "Start Looking Awake →"
+    });
     document.getElementById("final-cta")?.scrollIntoView({ behavior: "smooth" });
   };
 

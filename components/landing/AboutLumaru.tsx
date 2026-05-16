@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { sendEvent } from "@/lib/useGA4";
 
 const certifications = [
   "ECOCERT Certified",
@@ -33,6 +34,10 @@ export default function AboutLumaru() {
   }, []);
 
   const handleCTAClick = () => {
+    sendEvent("cta_clicked", {
+      cta_location: "about_lumaru_section",
+      cta_text: "Try It Yourself →"
+    });
     document.getElementById("final-cta")?.scrollIntoView({ behavior: "smooth" });
   };
 
