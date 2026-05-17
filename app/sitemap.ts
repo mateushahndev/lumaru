@@ -39,6 +39,43 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly" as const,
       priority: 0.8,
     },
+    // NOVAS PÁGINAS ADICIONADAS
+    {
+      url: `${baseUrl}/science`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/our-standards`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/tools/eye-cream-waste-calculator`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/tools/embed`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/quiz/are-you-making-your-dark-circles-worse`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/track-order`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.4, // página utilitária, prioridade baixa
+    },
   ];
 
   // Páginas legais (prioridade baixa)

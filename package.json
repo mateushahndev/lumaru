@@ -12,6 +12,7 @@
     "@next/third-parties": "^16.2.6",
     "@tailwindcss/typography": "^0.5.19",
     "autoprefixer": "^10.5.0",
+    "dotenv": "^17.4.2",
     "gray-matter": "^4.0.3",
     "lucide-react": "^1.11.0",
     "next": "16.2.4",
@@ -20,6 +21,7 @@
     "react-dom": "19.2.4",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
+    "resend": "^6.12.3",
     "sharp": "^0.34.5",
     "stripe": "^22.1.1",
     "tailwindcss": "^3.4.19"
@@ -31,5 +33,22 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
     "typescript": "^5"
-  }
+  },
+  "description": "Landing page moderna e de alta performance para produto de skincare, desenvolvida com Next.js 14, TypeScript e Tailwind CSS.",
+  "type": "module",
+  "main": "send-email.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateushahndev/lumaru.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mateushahndev/lumaru/issues"
+  },
+  "homepage": "https://github.com/mateushahndev/lumaru#readme"
 }
