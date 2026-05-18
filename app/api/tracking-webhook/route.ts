@@ -337,7 +337,7 @@ Terms: https://lumaruskin.com/terms
   `;
 
   await resend.emails.send({
-    from: "Lumaru <hello@lumaruskin.com>",
+    from: "Lumaru <tracking@lumaruskin.com>",
     to: [customerEmail],
     subject: `Your Awake Eye Complex is on its way ✨`,
     html: htmlBody,
