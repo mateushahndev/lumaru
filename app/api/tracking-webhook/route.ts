@@ -373,10 +373,11 @@ export async function POST(req: NextRequest) {
 
     try {
       const email = await resend.emails.receiving.get(emailId);
+      console.log("Full email response:", JSON.stringify(email, null, 2));
       
-      // A resposta vem em email.data
       if (email.data) {
         emailBody = email.data.text || email.data.html || "";
+        console.log("Extracted body length:", emailBody.length);
       }
     } catch (error) {
       console.error("Failed to fetch email content:", error);
