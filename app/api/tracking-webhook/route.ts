@@ -360,8 +360,24 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: "Ignored: not an email.received event" }, { status: 200 });
     }
 
+    // Por esta:
     const emailData = payload.data;
-    const emailBody = emailData.text_body || emailData.html_body || emailData.body || emailData.content || emailData.raw || "";
+    let emailBody = "";
+
+    // Buscar o conteúdo completo do email via API do Resend
+    if (emailData.email_id) {
+      try {
+        const emailResponse = await fetch(`https://api.resend.com/emails/${emailData.email_id}`, {
+          headers: {
+            'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+          },
+        });
+        const emailFull = await emailResponse.json();
+        emailBody = emailFull.text_body || emailFull.html_body || emailFull.body || "";
+      } catch (e) {
+        console.error("Failed to fetch email content:", e);
+      }
+    }
 
     if (!emailBody) {
       console.error("No email body found in webhook payload");
