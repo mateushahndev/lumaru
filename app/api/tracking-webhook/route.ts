@@ -360,28 +360,27 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: "Ignored: not an email.received event" }, { status: 200 });
     }
 
-    // Por esta:
     const emailData = payload.data;
-    let emailBody = "";
+    const emailId = emailData.email_id;
 
-    // Buscar o conteúdo completo do email via API do Resend
-    if (emailData.email_id) {
-      try {
-        const emailResponse = await fetch(`https://api.resend.com/emails/${emailData.email_id}`, {
-          headers: {
-            'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
-          },
-        });
-        const emailFull = await emailResponse.json();
-        emailBody = emailFull.text_body || emailFull.html_body || emailFull.body || "";
-      } catch (e) {
-        console.error("Failed to fetch email content:", e);
-      }
+    if (!emailId) {
+      console.error("No email_id found in webhook payload");
+      return NextResponse.json({ error: "No email_id provided" }, { status: 400 });
     }
 
-    if (!emailBody) {
-      console.error("No email body found in webhook payload");
-      return NextResponse.json({ error: "No email body" }, { status: 400 });
+    // Buscar o conteúdo completo do email via API do Resend
+    let emailBody = "";
+
+    try {
+      const email = await resend.emails.receiving.get(emailId);
+      
+      // A resposta vem em email.data
+      if (email.data) {
+        emailBody = email.data.text || email.data.html || "";
+      }
+    } catch (error) {
+      console.error("Failed to fetch email content:", error);
+      return NextResponse.json({ error: "Failed to retrieve email content" }, { status: 500 });
     }
 
     // Extrair dados do email
