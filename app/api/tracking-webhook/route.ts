@@ -361,7 +361,7 @@ export async function POST(req: NextRequest) {
     }
 
     const emailData = payload.data;
-    const emailBody = emailData.text_body || emailData.html_body || "";
+    const emailBody = emailData.text_body || emailData.html_body || emailData.body || emailData.content || emailData.raw || "";
 
     if (!emailBody) {
       console.error("No email body found in webhook payload");
