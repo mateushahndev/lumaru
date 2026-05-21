@@ -54,7 +54,7 @@ async function findSubscriberByEmail(email: string): Promise<MailerLiteSubscribe
 }
 
 /**
- * Remove assinante do grupo Newsletter
+ * Remove assinante do grupo Newsletter (DELETE funciona)
  */
 async function removeFromNewsletterGroup(subscriberId: string): Promise<boolean> {
   const response = await fetch(
@@ -77,24 +77,26 @@ async function removeFromNewsletterGroup(subscriberId: string): Promise<boolean>
 }
 
 /**
- * Adiciona assinante ao grupo Customers
- * ✅ CORRIGIDO: método alterado de POST para PUT
+ * Adiciona assinante ao grupo Customers via PUT /api/subscribers/{id}
+ * ✅ CORRIGIDO: usa o endpoint principal do assinante, não /groups
  */
 async function addToCustomersGroup(subscriberId: string): Promise<boolean> {
   const response = await fetch(
-    `https://connect.mailerlite.com/api/subscribers/${subscriberId}/groups`,
+    `https://connect.mailerlite.com/api/subscribers/${subscriberId}`,
     {
-      method: "PUT", // Antigo: POST
+      method: "PUT",
       headers: {
         Authorization: `Bearer ${process.env.MAILERLITE_API_KEY}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ groups: [CUSTOMERS_GROUP_ID] }),
+      body: JSON.stringify({
+        groups: [CUSTOMERS_GROUP_ID],
+      }),
     }
   );
 
   if (!response.ok) {
-    console.error("Failed to add to customers group:", await response.text());
+    console.error("Failed to update subscriber groups:", await response.text());
     return false;
   }
 
