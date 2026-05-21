@@ -14,27 +14,46 @@ interface MailerLiteSubscriber {
 }
 
 /**
- * Busca um assinante no MailerLite pelo email
+ * Busca um assinante no MailerLite pelo email (via listagem + filtro manual)
+ * O MailerLite não permite mais buscar por email diretamente via API
  */
 async function findSubscriberByEmail(email: string): Promise<MailerLiteSubscriber | null> {
-  const response = await fetch(
-    `https://connect.mailerlite.com/api/subscribers?filter[email]=${encodeURIComponent(email)}`,
-    {
-      headers: {
-        Authorization: `Bearer ${process.env.MAILERLITE_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  let page = 1;
+  const limit = 100;
+  let hasMore = true;
 
-  if (!response.ok) {
-    console.error("Failed to search subscriber:", await response.text());
-    return null;
+  while (hasMore) {
+    const response = await fetch(
+      `https://connect.mailerlite.com/api/subscribers?limit=${limit}&page=${page}`,
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.MAILERLITE_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (!response.ok) {
+      console.error(`Failed to fetch subscribers (page ${page}):`, await response.text());
+      return null;
+    }
+
+    const data = await response.json();
+    const subscribers = data.data || [];
+    
+    // Buscar email na página atual
+    const found = subscribers.find((sub: any) => sub.email === email);
+    if (found) {
+      return found;
+    }
+
+    // Verificar se há mais páginas
+    const meta = data.meta || {};
+    hasMore = subscribers.length === limit && (meta.current_page || page) < (meta.last_page || page + 1);
+    page++;
   }
 
-  const data = await response.json();
-  const subscribers = data.data || [];
-  return subscribers.length > 0 ? subscribers[0] : null;
+  return null;
 }
 
 /**
@@ -52,7 +71,7 @@ async function removeFromNewsletterGroup(subscriberId: string): Promise<boolean>
     }
   );
 
-  if (!response.ok) {
+  if (!response.ok && response.status !== 404) {
     console.error("Failed to remove from newsletter group:", await response.text());
     return false;
   }
@@ -123,7 +142,6 @@ export async function POST(req: NextRequest) {
   let event: Stripe.Event;
 
   try {
-    // Verificar assinatura do webhook
     event = stripe.webhooks.constructEvent(
       body,
       signature,
@@ -134,7 +152,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
   }
 
-  // Só processar eventos de checkout completo
   if (event.type !== "checkout.session.completed") {
     return NextResponse.json({ received: true }, { status: 200 });
   }
@@ -150,34 +167,21 @@ export async function POST(req: NextRequest) {
   console.log(`Processing checkout for: ${customerEmail}`);
 
   try {
-    // Buscar assinante no MailerLite
     const subscriber = await findSubscriberByEmail(customerEmail);
 
     if (subscriber) {
-      // Assinante existe: remover do Newsletter e adicionar ao Customers
       console.log(`Found existing subscriber: ${subscriber.id}`);
 
-      // Remover do grupo Newsletter (se estiver nele)
-      const removed = await removeFromNewsletterGroup(subscriber.id);
-      if (removed) {
-        console.log(`Removed ${customerEmail} from Newsletter group`);
-      }
-
-      // Adicionar ao grupo Customers
-      const added = await addToCustomersGroup(subscriber.id);
-      if (added) {
-        console.log(`Added ${customerEmail} to Customers group`);
-      }
+      await removeFromNewsletterGroup(subscriber.id);
+      await addToCustomersGroup(subscriber.id);
+      console.log(`Moved ${customerEmail} from Newsletter to Customers group`);
     } else {
-      // Assinante não existe: criar diretamente no grupo Customers
       console.log(`Creating new subscriber in Customers group: ${customerEmail}`);
       await createSubscriberInCustomersGroup(customerEmail);
     }
 
-    console.log(`Successfully synced ${customerEmail} to Customers group`);
+    console.log(`Successfully synced ${customerEmail}`);
   } catch (error) {
-    // Log do erro, mas retornamos 200 para o Stripe
-    // Isso evita que o Stripe reenvie o webhook repetidamente
     console.error("Error syncing subscriber:", error);
   }
 
