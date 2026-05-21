@@ -15,7 +15,6 @@ interface MailerLiteSubscriber {
 
 /**
  * Busca um assinante no MailerLite pelo email (via listagem + filtro manual)
- * O MailerLite não permite mais buscar por email diretamente via API
  */
 async function findSubscriberByEmail(email: string): Promise<MailerLiteSubscriber | null> {
   let page = 1;
@@ -41,13 +40,11 @@ async function findSubscriberByEmail(email: string): Promise<MailerLiteSubscribe
     const data = await response.json();
     const subscribers = data.data || [];
     
-    // Buscar email na página atual
     const found = subscribers.find((sub: any) => sub.email === email);
     if (found) {
       return found;
     }
 
-    // Verificar se há mais páginas
     const meta = data.meta || {};
     hasMore = subscribers.length === limit && (meta.current_page || page) < (meta.last_page || page + 1);
     page++;
@@ -81,12 +78,13 @@ async function removeFromNewsletterGroup(subscriberId: string): Promise<boolean>
 
 /**
  * Adiciona assinante ao grupo Customers
+ * ✅ CORRIGIDO: método alterado de POST para PUT
  */
 async function addToCustomersGroup(subscriberId: string): Promise<boolean> {
   const response = await fetch(
     `https://connect.mailerlite.com/api/subscribers/${subscriberId}/groups`,
     {
-      method: "POST",
+      method: "PUT", // Antigo: POST
       headers: {
         Authorization: `Bearer ${process.env.MAILERLITE_API_KEY}`,
         "Content-Type": "application/json",
@@ -127,9 +125,6 @@ async function createSubscriberInCustomersGroup(email: string): Promise<boolean>
   return true;
 }
 
-/**
- * Webhook do Stripe para sincronizar compras com MailerLite
- */
 export async function POST(req: NextRequest) {
   const body = await req.text();
   const signature = req.headers.get("stripe-signature");
