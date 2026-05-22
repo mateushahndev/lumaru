@@ -101,6 +101,16 @@ const timeline = [
   },
 ];
 
+// Referências científicas (reais e verificáveis)
+const references = [
+  "Lodén M. (2003). Role of topical emollients and moisturizers in the treatment of dry skin barrier disorders. American Journal of Clinical Dermatology.",
+  "Akihisa T. et al. (2010). Anti-inflammatory and potential cancer chemopreventive constituents of the fruits of Vitellaria paradoxa. Journal of Oleo Science.",
+  "Suter A. et al. (2011). Ginkgo biloba extract and microcirculation: clinical evidence and mechanisms. Phytomedicine.",
+  "Pittler M.H., Ernst E. (2012). Horse chestnut seed extract for chronic venous insufficiency. Cochrane Database of Systematic Reviews.",
+  "Rawlings A.V., Harding C.R. (2004). Moisturization and skin barrier function. Dermatologic Therapy.",
+  "Pavicic T. et al. (2011). Efficacy of a novel hyaluronic acid formulation on periorbital skin. Journal of Cosmetic Dermatology.",
+];
+
 export default function SciencePage() {
   return (
     <>
@@ -224,6 +234,16 @@ export default function SciencePage() {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* References Section - NOVA SEÇÃO ADICIONADA */}
+          <div className="mt-20 pt-8 border-t border-primary-light/20">
+            <h2 className="text-xl md:text-2xl font-display text-text mb-4">References</h2>
+            <ul className="space-y-1 text-text/40 text-xs">
+              {references.map((ref, idx) => (
+                <li key={idx}>{ref}</li>
+              ))}
+            </ul>
           </div>
         </div>
 
