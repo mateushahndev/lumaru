@@ -4,15 +4,6 @@ import { getAllPosts } from "../lib/blog";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://lumaruskin.com";
 
-  // Posts do blog
-  const posts = await getAllPosts();
-  const blogPages = posts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: post.date,
-    changeFrequency: "weekly" as const,
-    priority: 0.7,
-  }));
-
   // Páginas estáticas principais
   const staticPages = [
     {
@@ -39,7 +30,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly" as const,
       priority: 0.8,
     },
-    // NOVAS PÁGINAS ADICIONADAS
     {
       url: `${baseUrl}/science`,
       lastModified: new Date(),
@@ -74,7 +64,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/track-order`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
-      priority: 0.4, // página utilitária, prioridade baixa
+      priority: 0.4,
+    },
+  ];
+
+  // Posts do blog (gerados automaticamente)
+  const posts = await getAllPosts();
+  const blogPages = posts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: post.date,
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }));
+
+  // ⭐ NOVA PÁGINA ADICIONADA MANUALMENTE (já que o getAllPosts() não está capturando)
+  const manualBlogPages = [
+    {
+      url: `${baseUrl}/blog/ginkgo-biloba-vs-caffeine-dark-circles`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
     },
   ];
 
@@ -91,5 +100,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: "monthly" as const,
   }));
 
-  return [...staticPages, ...blogPages, ...legalPages];
+  // Combina todas as listas
+  return [...staticPages, ...blogPages, ...manualBlogPages, ...legalPages];
 }
