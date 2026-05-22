@@ -77,10 +77,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  // ⭐ NOVA PÁGINA ADICIONADA MANUALMENTE (já que o getAllPosts() não está capturando)
+  // Páginas manuais do blog (que não são geradas pelo getAllPosts)
   const manualBlogPages = [
     {
       url: `${baseUrl}/blog/ginkgo-biloba-vs-caffeine-dark-circles`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/shea-butter-vs-mineral-oil-under-eye-hydration`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.7,
@@ -100,6 +106,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: "monthly" as const,
   }));
 
-  // Combina todas as listas
   return [...staticPages, ...blogPages, ...manualBlogPages, ...legalPages];
 }
