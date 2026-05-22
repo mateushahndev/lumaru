@@ -25,7 +25,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-text/60">
               <li>
                 <Link 
-                  href="/#final-cta" 
+                  href="/" 
                   className="hover:text-primary transition-colors duration-300"
                 >
                   Awake Eye Complex
