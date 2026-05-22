@@ -24,16 +24,12 @@ export default function Footer() {
             <h4 className="font-semibold text-text">Shop</h4>
             <ul className="space-y-2 text-sm text-text/60">
               <li>
-                <a
-                  href="#"
+                <Link 
+                  href="/#final-cta" 
                   className="hover:text-primary transition-colors duration-300"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.getElementById("final-cta")?.scrollIntoView({ behavior: "smooth" });
-                  }}
                 >
                   Awake Eye Complex
-                </a>
+                </Link>
               </li>
               <li>
                 <Link href="/blog" className="hover:text-primary transition-colors duration-300">
@@ -65,34 +61,34 @@ export default function Footer() {
             <h4 className="font-semibold text-text">Support</h4>
             <ul className="space-y-2 text-sm text-text/60">
               <li>
-                <a
-                  href="/contact"
+                <Link 
+                  href="/contact" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors duration-300"
                 >
                   Contact Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/shipping"
+                <Link 
+                  href="/shipping" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors duration-300"
                 >
                   Shipping Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/refund"
+                <Link 
+                  href="/refund" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors duration-300"
                 >
                   Return & Refund
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -102,24 +98,24 @@ export default function Footer() {
             <h4 className="font-semibold text-text">Legal</h4>
             <ul className="space-y-2 text-sm text-text/60">
               <li>
-                <a
-                  href="/privacy"
+                <Link 
+                  href="/privacy" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors duration-300"
                 >
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/terms"
+                <Link 
+                  href="/terms" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors duration-300"
                 >
                   Terms of Service
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
