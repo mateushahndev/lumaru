@@ -53,6 +53,11 @@ export default function Footer() {
                   The Science
                 </Link>
               </li>
+              <li>
+                <Link href="/evidence" className="hover:text-primary transition-colors duration-300">
+                  The Evidence
+                </Link>
+              </li>
             </ul>
           </div>
 
