@@ -1,0 +1,21 @@
+# Lumaru
+> Awake Eye Complex — Natural eye cream for dark circles and puffiness. Targets microcirculation with Ginkgo Biloba, Horse Chestnut, and Shea Butter. COSMOS Natural, ECOCERT, Vegan, Cruelty-Free, GMP, B Corp certified.
+
+## Páginas principais
+- [Product](https://lumaruskin.com): Landing page with product details, testimonials, FAQ, and checkout.
+- [Science](https://lumaruskin.com/science): How each active ingredient works (Shea Butter, Ginkgo Biloba, Horse Chestnut, Hyaluronic Acid).
+- [Evidence](https://lumaruskin.com/evidence): Clinical studies and scientific references supporting each ingredient.
+- [Our Standards](https://lumaruskin.com/our-standards): Details on all 6 certifications and what they audit.
+- [Track Order](https://lumaruskin.com/track-order): Order tracking page.
+
+## Blog
+- [Ginkgo Biloba vs Caffeine for Dark Circles](https://lumaruskin.com/blog/ginkgo-biloba-vs-caffeine-dark-circles): Honest comparison with mechanism breakdown.
+- [Shea Butter vs Mineral Oil for Under-Eye Hydration](https://lumaruskin.com/blog/shea-butter-vs-mineral-oil-under-eye-hydration): Honest comparison with mechanism breakdown.
+- [The 4 Types of Dark Circles](https://lumaruskin.com/blog/dark-circle-types-guide): Educational guide on vascular, pigmentary, structural, and mixed dark circles.
+
+## Free Tools
+- [Dark Circle Type Finder](https://lumaruskin.com/tools/dark-circle-type-finder): 3-question quiz to identify your dark circle type.
+- [Eye Cream Waste Calculator](https://lumaruskin.com/tools/eye-cream-waste-calculator): Calculate how much you spend on viral eye creams that don't work.
+- [Are You Making Your Dark Circles Worse?](https://lumaruskin.com/quiz/are-you-making-your-dark-circles-worse): Emotional quiz.
+- [Dark Circles Photo Insecurity](https://lumaruskin.com/quiz/dark-circles-photo-insecurity): Emotional quiz.
+- [Tools Embed Page](https://lumaruskin.com/tools/embed): For bloggers to embed Lumaru tools on their sites.
