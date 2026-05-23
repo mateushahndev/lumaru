@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
+import LastUpdated from "@/components/LastUpdated";
 
 export const metadata: Metadata = {
   title: "The Science Behind Awake Eye Complex | Lumaru",
@@ -270,6 +271,7 @@ export default function SciencePage() {
           </div>
         </div>
       </main>
+      <LastUpdated date="2026-05-22" />
       <Footer />
     </>
   );

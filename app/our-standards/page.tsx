@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import LastUpdated from "@/components/LastUpdated";
 
 export const metadata: Metadata = {
   title: "Our Standards — Certified Clean Skincare | Lumaru",
@@ -105,6 +106,7 @@ export default function OurStandardsPage() {
           </Link>
         </div>
       </div>
+      <LastUpdated date="2026-05-17" />
     </div>
   );
 }

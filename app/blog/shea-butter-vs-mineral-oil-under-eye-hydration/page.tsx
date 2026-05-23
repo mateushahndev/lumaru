@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
+import LastUpdated from "@/components/LastUpdated";
 
 export const metadata: Metadata = {
   title: "Shea Butter vs Mineral Oil for Under-Eye Hydration: What's the Difference? | Lumaru",
@@ -255,6 +256,7 @@ export default function SheaButterVsMineralOilPage() {
           </article>
         </div>
       </div>
+      <LastUpdated date="2026-05-22" />
       <Footer />
     </>
   );

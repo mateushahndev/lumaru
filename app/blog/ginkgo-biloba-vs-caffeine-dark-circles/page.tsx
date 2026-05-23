@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
+import LastUpdated from "@/components/LastUpdated";
 
 export const metadata: Metadata = {
   title: "Ginkgo Biloba vs Caffeine for Dark Circles: Which One Actually Works? | Lumaru",
@@ -223,6 +224,7 @@ export default function GinkgoVsCaffeinePage() {
           </article>
         </div>
       </div>
+      <LastUpdated date="2026-05-22" />
       <Footer />
     </>
   );
