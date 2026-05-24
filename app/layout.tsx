@@ -109,7 +109,7 @@ const organizationSchema = {
   },
   sameAs: [
     "https://bsky.app/profile/mateushahn.bsky.social",
-    "https://pinterest.com/lumaruskin",
+    "https://www.pinterest.com/awakemyeyes/",
   ],
   contactPoint: {
     "@type": "ContactPoint",

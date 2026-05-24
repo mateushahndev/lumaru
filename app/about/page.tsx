@@ -56,7 +56,7 @@ export default function AboutPage() {
                 />
               </div>
               <div className="text-center">
-                <h2 className="text-2xl font-display text-text mb-4">Hi, I'm Mateus.</h2>
+                <h2 className="text-2xl font-display text-text mb-4">Hi, I'm Mateus Hahn.</h2>
                 <p className="text-text/70 leading-relaxed mb-4">
                   I'm 21, Brazilian, and I build things on the internet. Lumaru is the fourth business I've started — and the one that finally connects everything I believe about how products should be made and sold.
                 </p>
@@ -130,7 +130,7 @@ export default function AboutPage() {
               Lumaru launched in May 2026 with one product and a simple mission: make skincare that actually does what it says, and be honest about what it doesn't. If that sounds like the kind of brand you've been looking for, I'm glad you're here.
             </p>
             <p className="text-text text-lg font-medium">
-              — Mateus
+              — Mateus Hahn
             </p>
           </div>
 
