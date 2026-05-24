@@ -94,6 +94,37 @@ export const viewport: Viewport = {
   themeColor: "#B5A5D1",
 };
 
+// ✅ Schema.org Organization — identidade da marca para Google e IAs
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Lumaru",
+  url: "https://lumaruskin.com",
+  logo: "https://lumaruskin.com/logo.png",
+  description: "Clean science for tired eyes. Awake Eye Complex targets dark circles and puffiness with organic actives.",
+  email: "hello@lumaruskin.com",
+  founder: {
+    "@type": "Person",
+    name: "Mateus Hahn",
+  },
+  sameAs: [
+    "https://bsky.app/profile/mateushahn.bsky.social",
+    "https://pinterest.com/lumaruskin",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: "hello@lumaruskin.com",
+    contactType: "customer service",
+    availableLanguage: ["English"],
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Charlotte",
+    addressRegion: "NC",
+    addressCountry: "US",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -101,7 +132,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-US" className={`${inter.variable} ${playfair.variable}`}>
-      <head />
+      <head>
+        {/* ✅ Organization Schema para SEO e GEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </head>
       <body className="font-sans antialiased bg-background text-text">
         {children}
       </body>
