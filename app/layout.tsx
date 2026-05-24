@@ -132,16 +132,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-US" className={`${inter.variable} ${playfair.variable}`}>
-      <head>
-        {/* ✅ Organization Schema para SEO e GEO */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
-      </head>
+      <head />
       <body className="font-sans antialiased bg-background text-text">
         {children}
       </body>
+      {/* ✅ Organization Schema — usando Script do Next para evitar hydration issues */}
+      <Script
+        id="organization-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
       {/* Google Analytics 4 */}
       <GoogleAnalytics gaId="G-TS8PPQ5WKC" />
       {/* Microsoft Clarity */}
