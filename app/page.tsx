@@ -25,13 +25,13 @@ export const metadata: Metadata = {
   },
 };
 
-// Schema.org estruturado para SEO - CORRIGIDO
+// Schema.org estruturado para SEO - Produto
 const productSchema = {
   "@context": "https://schema.org/",
   "@type": "Product",
   name: "Awake Eye Complex",
   description: "Dark circle eye cream with Shea Butter, Ginkgo Biloba, and Horse Chestnut. Multi-molecular Hyaluronic Acid for instant hydration. COSMOS Natural certified. Vegan and cruelty-free.",
-  image: "https://lumaruskin.com/images/hero/product.png", // ✅ URL direta, não ImageObject
+  image: "https://lumaruskin.com/images/hero/product.png",
   brand: {
     "@type": "Brand",
     name: "Lumaru",
@@ -45,7 +45,63 @@ const productSchema = {
   },
 };
 
-// Depoimentos originais (sem nomes/cidades falsos)
+// ✅ NOVO: FAQ Schema para rich snippets
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "I've tried dozens of eye creams. Why would this one be any different?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most eye creams only moisturize the surface. They don't address poor microcirculation — the actual cause of most dark circles and puffiness. Awake Eye Complex targets this root cause with Ginkgo Biloba (microcirculation activator), Horse Chestnut (capillary strengthener), and Shea Butter (deep hydration). Different mechanism, different result."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is $35.90 worth it for only 15ml?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A rice-grain amount covers both under-eyes — one 15ml tube lasts months with daily use. More importantly, you're paying for active ingredients that target the root cause, not just surface moisturizers. Compare that to buying multiple cheaper creams that don't work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "I have sensitive skin. Will this irritate me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The formula is COSMOS Natural certified, vegan, fragrance-free, and made without parabens or harsh preservatives. It was specifically designed for the delicate under-eye area. If you have specific allergies, check the full ingredient list on the product page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "My dark circles are genetic. Can this actually help?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the type. If your dark circles are vascular (bluish/purple, caused by poor circulation), the Ginkgo Biloba and Horse Chestnut can help visibly. If they're pigmentary (brownish, caused by melanin), the effect will be more limited. Use our free Dark Circle Type Finder to identify your type before buying — we'd rather you know what works for you than sell you the wrong thing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long until I see results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hydration feels instant. Puffiness typically decreases within the first week. Dark circles fade gradually with consistent use — most people see visible improvement in 2-4 weeks, with best results after 6-8 weeks of daily application."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if it doesn't work for me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer a 30-day return policy. If you're not satisfied, contact us at hello@lumaruskin.com and we'll make it right. No hassle."
+      }
+    }
+  ]
+};
+
+// Depoimentos
 const testimonialsSet1 = [
   {
     id: 1,
@@ -95,6 +151,12 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+      
+      {/* ✅ FAQ Schema para rich snippets */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       
       <main className="min-h-screen bg-background">
