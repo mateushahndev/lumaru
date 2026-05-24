@@ -58,23 +58,52 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     notFound();
   }
 
-  // Verificar se é o post do guia de tipos de olheiras
-  const isDarkCircleTypesGuide = slug === "dark-circle-types-guide";
+  // Definição dos slugs que têm TL;DR
+  const tldrSlugs = [
+    "dark-circle-types-guide",
+    "why-you-look-tired-after-sleep"
+  ];
+  
+  const hasTldr = tldrSlugs.includes(slug);
 
-  // TL;DR apenas para o post específico
-  const tldrContent = isDarkCircleTypesGuide ? (
-    <div className="bg-primary-light/10 border-l-4 border-primary rounded-r-xl p-6 mb-10">
-      <h2 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">
-        TL;DR — The Short Version
-      </h2>
-      <ul className="space-y-2 text-text/80">
-        <li>✓ Dark circles aren't one thing — there are 4 distinct types: Vascular (blue/purple, poor circulation), Pigmentary (brown, excess melanin), Structural (shadow from facial structure), and Mixed (a combination).</li>
-        <li>✓ Each type has a different cause — and treating the wrong type is why most eye creams feel useless.</li>
-        <li>✓ You can self-diagnose in 10 seconds: stretch the skin (fades = vascular), check the color (brown = pigmentary), tilt toward light (shadow shifts = structural).</li>
-        <li>✓ The fix matches the cause: Ginkgo Biloba for vascular, sunscreen + vitamin C for pigmentary, deep hydration for structural. For mixed, layer all three.</li>
-      </ul>
-    </div>
-  ) : null;
+  // Conteúdo do TL;DR baseado no slug
+  const getTldrContent = () => {
+    if (slug === "dark-circle-types-guide") {
+      return (
+        <div className="bg-primary-light/10 border-l-4 border-primary rounded-r-xl p-6 mb-10">
+          <h2 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">
+            TL;DR — The Short Version
+          </h2>
+          <ul className="space-y-2 text-text/80">
+            <li>✓ Dark circles aren't one thing — there are 4 distinct types: Vascular (blue/purple, poor circulation), Pigmentary (brown, excess melanin), Structural (shadow from facial structure), and Mixed (a combination).</li>
+            <li>✓ Each type has a different cause — and treating the wrong type is why most eye creams feel useless.</li>
+            <li>✓ You can self-diagnose in 10 seconds: stretch the skin (fades = vascular), check the color (brown = pigmentary), tilt toward light (shadow shifts = structural).</li>
+            <li>✓ The fix matches the cause: Ginkgo Biloba for vascular, sunscreen + vitamin C for pigmentary, deep hydration for structural. For mixed, layer all three.</li>
+          </ul>
+        </div>
+      );
+    }
+    
+    if (slug === "why-you-look-tired-after-sleep") {
+      return (
+        <div className="bg-primary-light/10 border-l-4 border-primary rounded-r-xl p-6 mb-10">
+          <h2 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">
+            TL;DR — The Short Version
+          </h2>
+          <ul className="space-y-2 text-text/80">
+            <li>✓ Sleeping 8 hours isn't enough — under-eye darkness has 3 hidden causes that rest alone can't fix.</li>
+            <li>✓ Sluggish microcirculation makes blood pool and show through thin skin as a bluish tint.</li>
+            <li>✓ Fluid retention from sodium, alcohol, or lying flat causes morning puffiness that compounds over time.</li>
+            <li>✓ Skin thinning with age makes underlying vessels and shadows more visible — hydration and sunscreen slow this down.</li>
+          </ul>
+        </div>
+      );
+    }
+    
+    return null;
+  };
+
+  const tldrContent = hasTldr ? getTldrContent() : null;
 
   // Schema.org para Artigo (BlogPosting)
   const articleSchema = {
@@ -163,7 +192,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               {post.title}
             </h1>
 
-            {/* TL;DR - apenas para o dark-circle-types-guide */}
+            {/* TL;DR - apenas para slugs específicos */}
             {tldrContent}
 
             <div className="text-text/70 prose-headings:text-text prose-headings:font-semibold prose-a:text-primary prose-strong:text-text">
