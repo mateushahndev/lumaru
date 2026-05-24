@@ -44,6 +44,11 @@ export default function Footer() {
             <h4 className="font-semibold text-text">About</h4>
             <ul className="space-y-2 text-sm text-text/60">
               <li>
+                <Link href="/about" className="hover:text-primary transition-colors duration-300">
+                  About
+                </Link>
+              </li>
+              <li>
                 <Link href="/our-standards" className="hover:text-primary transition-colors duration-300">
                   Our Standards
                 </Link>
