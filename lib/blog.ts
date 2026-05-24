@@ -8,6 +8,7 @@ export interface BlogPost {
   slug: string;
   title: string;
   date: string;
+  author: string;  // ✅ corrigido: "author" (estava "auhtor")
   excerpt: string;
   coverImage?: string;
   category?: string;
@@ -34,6 +35,7 @@ export async function getAllPosts(): Promise<BlogPost[]> {
         slug,
         title: data.title || "Untitled",
         date: data.date || new Date().toISOString().split("T")[0],
+        author: data.author || "Mateus Hahn",  // ✅ valor padrão
         excerpt: data.excerpt || "",
         coverImage: data.coverImage || null,
         category: data.category || null,
@@ -60,6 +62,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     slug,
     title: data.title || "Untitled",
     date: data.date || new Date().toISOString().split("T")[0],
+    author: data.author || "Mateus Hahn",  // ✅ valor padrão
     excerpt: data.excerpt || "",
     coverImage: data.coverImage || null,
     category: data.category || null,

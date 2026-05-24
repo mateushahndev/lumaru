@@ -44,6 +44,10 @@ export default function GinkgoVsCaffeinePage() {
               Ginkgo Biloba vs Caffeine for Dark Circles: Which One Actually Works?
             </h1>
 
+            <p className="text-text/50 text-sm mb-6">
+              By Mateus Hahn • May 15, 2026 • Education • 6 min read
+            </p>
+
             {/* Intro */}
             <p className="text-text/70 text-lg leading-relaxed mb-8">
               Both show up in eye creams. Both promise results. But they work in completely different ways — and one might be useless for your specific type of dark circles.

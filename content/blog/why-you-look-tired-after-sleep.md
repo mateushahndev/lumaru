@@ -1,6 +1,7 @@
 ---
 title: "Why You Look Tired Even After 8 Hours of Sleep — The Real Reasons"
 date: "2026-05-13"
+author: "Mateus Hahn"
 excerpt: "You slept well, drank water, and still look exhausted. Sleep isn't the whole story. Here are the 3 hidden causes — and what actually helps each one."
 coverImage: "/images/blog/tired-after-sleep.webp"
 category: "Education"

@@ -1,6 +1,7 @@
 ---
 title: "The 4 Types of Dark Circles — Which One Do You Have?"
 date: "2026-05-01"
+author: "Mateus Hahn"
 excerpt: "Not all dark circles are the same — and that's why most eye creams don't work. Learn the 4 types, how to identify yours, and what actually helps."
 coverImage: "/images/blog/dark-circle-types.webp"
 category: "Education"

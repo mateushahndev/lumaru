@@ -106,6 +106,7 @@ export default function OurStandardsPage() {
           </Link>
         </div>
       </div>
+      <p className="text-text/50 text-sm text-center mt-4 mb-4">Written by Mateus Hahn</p>
       <LastUpdated date="2026-05-17" />
     </div>
   );

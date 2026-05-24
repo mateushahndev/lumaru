@@ -44,6 +44,10 @@ export default function SheaButterVsMineralOilPage() {
               Shea Butter vs Mineral Oil for Under-Eye Hydration: What's the Difference?
             </h1>
 
+            <p className="text-text/50 text-sm mb-6">
+              By Mateus Hahn • May 15, 2026 • Education • 7 min read
+            </p>
+
             {/* Intro */}
             <p className="text-text/70 text-lg leading-relaxed mb-8">
               Both lock in moisture. Both show up in eye creams. But one nourishes while the other just seals — and the difference matters for the thinnest skin on your face.

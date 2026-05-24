@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       url: `https://lumaruskin.com/blog/${slug}`,
       type: "article",
       publishedTime: post.date,
-      authors: ["Lumaru"],
+      authors: post.author ? [post.author] : ["Lumaru"],
       tags: post.category ? [post.category] : [],
     },
     alternates: {
@@ -114,9 +114,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     datePublished: post.date,
     dateModified: post.date,
     author: {
-      "@type": "Organization",
-      name: "Lumaru",
-      url: "https://lumaruskin.com",
+      "@type": "Person",
+      name: post.author || "Lumaru",
     },
     publisher: {
       "@type": "Organization",
@@ -170,7 +169,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </div>
             )}
 
-            <div className="flex items-center gap-2 text-sm text-text/50 mb-4">
+            {/* ✅ Metadados com autor */}
+            <div className="flex flex-wrap items-center gap-2 text-sm text-text/50 mb-4">
+              {post.author && (
+                <>
+                  <span>By {post.author}</span>
+                  <span>•</span>
+                </>
+              )}
               <time dateTime={post.date}>{post.date}</time>
               {post.category && (
                 <>
