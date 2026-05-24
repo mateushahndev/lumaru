@@ -7,7 +7,6 @@ import type { Metadata } from "next";
 import { getAllPosts, getPostBySlug, BlogPost } from "../../../lib/blog";
 import BlogEmailBanner from "@/components/BlogEmailBanner";
 
-
 // Gerar rotas estáticas no build
 export async function generateStaticParams() {
   const posts: BlogPost[] = await getAllPosts();
@@ -58,6 +57,24 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   if (!post) {
     notFound();
   }
+
+  // Verificar se é o post do guia de tipos de olheiras
+  const isDarkCircleTypesGuide = slug === "dark-circle-types-guide";
+
+  // TL;DR apenas para o post específico
+  const tldrContent = isDarkCircleTypesGuide ? (
+    <div className="bg-primary-light/10 border-l-4 border-primary rounded-r-xl p-6 mb-10">
+      <h2 className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">
+        TL;DR — The Short Version
+      </h2>
+      <ul className="space-y-2 text-text/80">
+        <li>✓ Dark circles aren't one thing — there are 4 distinct types: Vascular (blue/purple, poor circulation), Pigmentary (brown, excess melanin), Structural (shadow from facial structure), and Mixed (a combination).</li>
+        <li>✓ Each type has a different cause — and treating the wrong type is why most eye creams feel useless.</li>
+        <li>✓ You can self-diagnose in 10 seconds: stretch the skin (fades = vascular), check the color (brown = pigmentary), tilt toward light (shadow shifts = structural).</li>
+        <li>✓ The fix matches the cause: Ginkgo Biloba for vascular, sunscreen + vitamin C for pigmentary, deep hydration for structural. For mixed, layer all three.</li>
+      </ul>
+    </div>
+  ) : null;
 
   // Schema.org para Artigo (BlogPosting)
   const articleSchema = {
@@ -111,7 +128,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           <article className="prose prose-lg max-w-none">
             {post.coverImage && (
-              // Imagem sem cortes: usa object-contain para mostrar a imagem inteira
               <div className="relative w-full min-h-[200px] md:min-h-[300px] rounded-2xl overflow-hidden bg-primary-light/10 mb-8">
                 <Image
                   src={post.coverImage}
@@ -147,23 +163,26 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               {post.title}
             </h1>
 
+            {/* TL;DR - apenas para o dark-circle-types-guide */}
+            {tldrContent}
+
             <div className="text-text/70 prose-headings:text-text prose-headings:font-semibold prose-a:text-primary prose-strong:text-text">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>
                 {post.content}
               </ReactMarkdown>
             </div>
           </article>
-        <BlogEmailBanner />
 
-        {/* Opcional: manter link para outros artigos abaixo do banner */}
-        <div className="text-center mt-6">
-          <Link
-            href="/blog"
-            className="text-primary/70 hover:text-primary text-sm transition-colors"
-          >
-            ← Browse all articles
-          </Link>
-        </div>
+          <BlogEmailBanner />
+
+          <div className="text-center mt-6">
+            <Link
+              href="/blog"
+              className="text-primary/70 hover:text-primary text-sm transition-colors"
+            >
+              ← Browse all articles
+            </Link>
+          </div>
         </div>
       </div>
     </>
