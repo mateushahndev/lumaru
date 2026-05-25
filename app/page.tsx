@@ -1,18 +1,15 @@
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
 import Badges from "@/components/landing/Badges";
 import PainSection from "@/components/landing/PainSection";
-
-// Componentes abaixo da dobra (carregados sob demanda)
-const Testimonials = dynamic(() => import("@/components/landing/Testimonials"));
-const Benefits = dynamic(() => import("@/components/landing/Benefits"));
-const HowItWorks = dynamic(() => import("@/components/landing/HowItWorks"));
-const AboutLumaru = dynamic(() => import("@/components/landing/AboutLumaru"));
-const FAQ = dynamic(() => import("@/components/landing/FAQ"));
-const FinalCTA = dynamic(() => import("@/components/landing/FinalCTA"));
-const Footer = dynamic(() => import("@/components/landing/Footer"));
+import Testimonials from "@/components/landing/Testimonials";
+import Benefits from "@/components/landing/Benefits";
+import HowItWorks from "@/components/landing/HowItWorks";
+import AboutLumaru from "@/components/landing/AboutLumaru";
+import FAQ from "@/components/landing/FAQ";
+import FinalCTA from "@/components/landing/FinalCTA";
+import Footer from "@/components/landing/Footer";
 
 export const metadata: Metadata = {
   title: "Awake Eye Complex | Natural Eye Cream for Dark Circles & Puffiness",
