@@ -146,7 +146,7 @@ export default function RootLayout({
       {/* Google Analytics 4 */}
       <GoogleAnalytics gaId="G-TS8PPQ5WKC" />
       {/* Microsoft Clarity */}
-      <Script id="clarity-script" strategy="afterInteractive">
+      <Script id="clarity-script" strategy="lazyOnload">
         {`
           (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
