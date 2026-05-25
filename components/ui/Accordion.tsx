@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, ReactNode } from "react";
 
 interface AccordionItem {
   id: number;
   question: string;
-  answer: string;
+  answer: ReactNode;
 }
 
 interface AccordionProps {
@@ -51,9 +51,9 @@ export default function Accordion({ items }: AccordionProps) {
             }`}
             aria-hidden={openIndex !== index}
           >
-            <p className="text-sm text-text/70 leading-relaxed">
+            <div className="text-sm text-text/70 leading-relaxed">
               {item.answer}
-            </p>
+            </div>
           </div>
         </div>
       ))}
