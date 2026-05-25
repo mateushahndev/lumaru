@@ -148,7 +148,7 @@ export default function ComparisonPage() {
               <strong>Ginkgo Biloba</strong> has been shown to improve peripheral blood flow and reduce capillary fragility, meaning less blood pooling under the thin skin of your eye area. A 2011 study by Suter et al. documented its role in improving circulation in superficial tissue.
             </p>
             <p className="text-text/70 leading-relaxed mb-4">
-              <strong>Horse Chestnut</strong> (specifically its active compound aescin) helps reduce venous permeability — it strengthens vessel walls so they're less prone to leaking fluid. Pittler &amp; Ernst (2012) reviewed the evidence for Horse Chestnut in managing conditions related to venous insufficiency and chronic edema.
+              <strong>Horse Chestnut </strong> (specifically its active compound aescin) helps reduce venous permeability — it strengthens vessel walls so they're less prone to leaking fluid. Pittler &amp; Ernst (2012) reviewed the evidence for Horse Chestnut in managing conditions related to venous insufficiency and chronic edema.
             </p>
             <p className="text-text/70 leading-relaxed mb-4">
               <strong>Multi-Molecular Hyaluronic Acid</strong> works at multiple skin depths simultaneously. Pavicic et al. (2011) demonstrated that low-molecular-weight HA penetrates more deeply, while high-molecular-weight HA forms a protective surface film. Together, they address both immediate hydration and longer-term plumping.
