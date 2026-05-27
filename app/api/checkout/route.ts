@@ -7,37 +7,56 @@ export async function POST(req: NextRequest) {
   try {
     const { success_url, cancel_url } = await req.json();
 
+    const priceId = process.env.STRIPE_PRICE_ID;
+    const bundlePriceId = process.env.STRIPE_BUNDLE_PRICE_ID;
+
+    if (!priceId) {
+      console.error("Missing STRIPE_PRICE_ID environment variable");
+      return NextResponse.json(
+        { error: "Server configuration error" },
+        { status: 500 }
+      );
+    }
+
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
-      allow_promotion_codes: true, // ← NOVO: permite cupons de desconto
+      allow_promotion_codes: true,
       line_items: [
         {
-          price: process.env.STRIPE_PRICE_ID,
+          price: priceId,
           quantity: 1,
         },
       ],
-      success_url: success_url || "https://lumaruskin.com/success",
-      cancel_url: cancel_url || "https://lumaruskin.com",
-      shipping_address_collection: {
-        allowed_countries: ["US"],
-      },
+      ...(bundlePriceId && {
+        optional_items: [
+          {
+            price: bundlePriceId,
+            quantity: 1,
+          },
+        ],
+      }),
       shipping_options: [
         {
           shipping_rate_data: {
             type: "fixed_amount",
             fixed_amount: {
-              amount: 747,
+              amount: 0,
               currency: "usd",
             },
-            display_name: "Standard Shipping",
+            display_name: "Free Shipping",
             delivery_estimate: {
               minimum: { unit: "business_day", value: 5 },
-              maximum: { unit: "business_day", value: 12 },
+              maximum: { unit: "business_day", value: 9 },
             },
           },
         },
       ],
+      shipping_address_collection: {
+        allowed_countries: ["US"],
+      },
+      success_url: success_url || "https://lumaruskin.com/success",
+      cancel_url: cancel_url || "https://lumaruskin.com",
     });
 
     return NextResponse.json({ url: session.url });
