@@ -127,7 +127,7 @@ export default function ComparisonPage() {
               <strong>Ginkgo Biloba</strong> has been studied specifically for its ability to improve peripheral microcirculation — the kind that happens in the small blood vessels just under the skin's surface. A 2011 study by Suter found meaningful improvements in microvascular blood flow with Ginkgo supplementation.
             </p>
             <p className="text-text/70 leading-relaxed mb-4">
-              <strong>Horse Chestnut</strong> (specifically its active compound, aescin) strengthens capillary walls and reduces permeability. Pittler &amp; Ernst's 2012 meta-analysis documented its effectiveness in reducing vascular leakage.
+              <strong>Horse Chestnut </strong> (specifically its active compound, aescin) strengthens capillary walls and reduces permeability. Pittler &amp; Ernst's 2012 meta-analysis documented its effectiveness in reducing vascular leakage.
             </p>
             <p className="text-text/70 leading-relaxed mb-4">
               <strong>Shea Butter</strong> handles barrier repair — similar in purpose to CeraVe's ceramides, without the synthetic processing. Lodén's 2003 research confirmed its effectiveness as a moisturizing barrier ingredient.
