@@ -44,7 +44,6 @@ export default function Hero() {
             <span className="text-text/70 text-sm">Clean science for tired eyes</span>
           </div>
 
-          {/* H1 correto - ✅ OK */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.2] tracking-tight text-text">
             Wake up looking{" "}
             <span className="text-primary">rested.</span>
@@ -76,7 +75,7 @@ export default function Hero() {
             </button>
 
             <p className="text-sm text-text/50 text-center sm:text-left">
-              Fast shipping from the US · No subscriptions
+              Free shipping from the US · No subscriptions
             </p>
           </div>
         </div>
