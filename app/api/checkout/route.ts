@@ -5,22 +5,20 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 export async function POST(req: NextRequest) {
   try {
-    const { success_url, cancel_url, bundle } = await req.json();
-    // bundle: true = 2 unidades por $57.90, false/undefined = 1 unidade por $35.90
-
-    const priceId = process.env.STRIPE_PRICE_ID;
-    const bundlePriceId = process.env.STRIPE_BUNDLE_PRICE_ID;
+    const { success_url, cancel_url, quantity = 1 } = await req.json();
+    
+    // Se quantity for 2, usa o price do bundle; senão, usa o individual
+    const priceId = quantity === 2 
+      ? process.env.STRIPE_BUNDLE_PRICE_ID  // price para 2 unidades
+      : process.env.STRIPE_PRICE_ID;        // price para 1 unidade
 
     if (!priceId) {
-      console.error("Missing STRIPE_PRICE_ID environment variable");
+      console.error("Missing Stripe price ID");
       return NextResponse.json(
         { error: "Server configuration error" },
         { status: 500 }
       );
     }
-
-    // Se bundle = true e o ID existe, usa o preço do bundle. Senão, usa o individual.
-    const selectedPrice = (bundle && bundlePriceId) ? bundlePriceId : priceId;
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
@@ -28,8 +26,8 @@ export async function POST(req: NextRequest) {
       allow_promotion_codes: true,
       line_items: [
         {
-          price: selectedPrice,
-          quantity: 1,
+          price: priceId,
+          quantity: 1, // O price já define se é 1 ou 2 unidades
         },
       ],
       shipping_options: [
