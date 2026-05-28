@@ -42,6 +42,7 @@ next-env.d.ts
 
 # outreach
 send-email.js
+embed-email.txt
 
 # tracking
 tracking.txt
