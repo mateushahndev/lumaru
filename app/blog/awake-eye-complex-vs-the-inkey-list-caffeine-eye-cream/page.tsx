@@ -128,7 +128,7 @@ export default function ComparisonPage() {
               <strong>Ginkgo Biloba</strong> improves blood flow in the microvascular system beneath the eye. Instead of constricting vessels temporarily, it helps the blood move through them properly, reducing the stagnation that causes that blue-purple shadow. (Suter et al., 2011)
             </p>
             <p className="text-text/70 leading-relaxed mb-4">
-              <strong>Horse Chestnut (Aescin)</strong> strengthens the walls of capillaries, making them less prone to leaking and pooling. Weaker capillary walls are one of the main reasons blood seeps into surrounding tissue and shows through the thin skin under your eyes. (Pittler &amp; Ernst, 2012)
+              <strong>Horse Chestnut (Aescin) </strong> strengthens the walls of capillaries, making them less prone to leaking and pooling. Weaker capillary walls are one of the main reasons blood seeps into surrounding tissue and shows through the thin skin under your eyes. (Pittler &amp; Ernst, 2012)
             </p>
             <p className="text-text/70 leading-relaxed mb-4">
               <strong>Multi-Molecular Hyaluronic Acid</strong> works at multiple skin depths — smaller molecules penetrate deeper to hydrate from within, while larger molecules form a surface film that locks in moisture. (Pavicic et al., 2011)
