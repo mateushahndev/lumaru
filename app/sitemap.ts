@@ -115,9 +115,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly" as const,
       priority: 0.7,
     },
-    // ✅ NOVO
     {
       url: `${baseUrl}/blog/awake-eye-complex-vs-cerave-eye-repair-cream`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    },
+    // ✅ NOVA PÁGINA
+    {
+      url: `${baseUrl}/blog/awake-eye-complex-vs-the-inkey-list-caffeine-eye-cream`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.7,
