@@ -13,6 +13,10 @@ interface Scores {
   mixed: number;
 }
 
+interface DarkCircleTypeFinderProps {
+  isEmbedded?: boolean;
+}
+
 // Cores exclusivas da ferramenta (NENHUMA relação com o site)
 const TOOL_THEME = {
   primary: "#0F172A",      // Azul escuro profundo
@@ -89,7 +93,7 @@ const sendEvent = (eventName: string, params?: Record<string, any>) => {
   }
 };
 
-export default function DarkCircleTypeFinder() {
+export default function DarkCircleTypeFinder({ isEmbedded = false }: DarkCircleTypeFinderProps) {
   const [step, setStep] = useState<Step>(1);
   const [scores, setScores] = useState<Scores>({
     vascular: 0,
@@ -127,6 +131,23 @@ export default function DarkCircleTypeFinder() {
       sendEvent("tool_completed", { tool_name: "dark_circle_type_finder" });
     }
   }, [step, result]);
+
+  // Enviar altura para o parent quando embedado
+  useEffect(() => {
+    if (isEmbedded && typeof window !== "undefined" && window.parent !== window) {
+      const sendHeight = () => {
+        const height = document.body.scrollHeight;
+        window.parent.postMessage(
+          { type: "lumaru-resize", height: height },
+          "*"
+        );
+      };
+      sendHeight();
+      const observer = new ResizeObserver(() => sendHeight());
+      observer.observe(document.body);
+      return () => observer.disconnect();
+    }
+  }, [isEmbedded, step, result, scores]);
 
   const handleAnswer = (type: keyof Scores) => {
     const newScores = { ...scores, [type]: scores[type] + 1 };
@@ -169,7 +190,7 @@ export default function DarkCircleTypeFinder() {
   // Loading State
   if (step === "loading") {
     return (
-      <div className="min-h-screen pt-20 md:pt-32 pb-20" style={{ backgroundColor: TOOL_THEME.bg }}>
+      <div className={isEmbedded ? "" : "min-h-screen pt-20 md:pt-32 pb-20"} style={{ backgroundColor: TOOL_THEME.bg }}>
         <div className="max-w-2xl mx-auto px-4 text-center">
           <div 
             className="rounded-2xl shadow-lg p-12 animate-fade-in-up"
@@ -195,11 +216,10 @@ export default function DarkCircleTypeFinder() {
   if (step === "result" && result) {
     const data = resultData[result];
     return (
-      <div className="min-h-screen pt-20 md:pt-32 pb-20" style={{ backgroundColor: TOOL_THEME.bg }}>
+      <div className={isEmbedded ? "" : "min-h-screen pt-20 md:pt-32 pb-20"} style={{ backgroundColor: TOOL_THEME.bg }}>
         <div className={`max-w-3xl mx-auto px-4 animate-fade-in-up`}>
           <div className={`bg-gradient-to-br ${data.bgGradient} rounded-2xl shadow-xl overflow-hidden`}>
             <div className="p-8 md:p-10">
-              {/* Tag do tipo */}
               <div 
                 className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4"
                 style={{ backgroundColor: `${data.accentColor}20`, color: data.accentColor }}
@@ -215,7 +235,6 @@ export default function DarkCircleTypeFinder() {
                 {data.explanation}
               </p>
               
-              {/* Tips Section */}
               <div className="rounded-xl p-6 mb-8" style={{ backgroundColor: `${data.accentColor}10` }}>
                 <h2 className="text-xl font-semibold mb-4" style={{ color: TOOL_THEME.text }}>
                   What Actually Works for Your Type
@@ -230,7 +249,6 @@ export default function DarkCircleTypeFinder() {
                 </ul>
               </div>
               
-              {/* CTA principal - vai para o blog */}
               <button
                 onClick={handleCtaClick}
                 className="w-full py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg mb-4"
@@ -239,12 +257,10 @@ export default function DarkCircleTypeFinder() {
                 Read the Complete Guide →
               </button>
               
-              {/* Texto institucional - sem venda */}
               <p className="text-center text-sm mb-4" style={{ color: TOOL_THEME.textLight }}>
                 This guide explains each type in depth, with science-backed solutions.
               </p>
               
-              {/* Restart button */}
               <button
                 onClick={handleRestart}
                 className="block mx-auto text-sm transition-colors"
@@ -263,9 +279,8 @@ export default function DarkCircleTypeFinder() {
 
   // Question States
   return (
-    <div className="min-h-screen pt-20 md:pt-32 pb-20" style={{ backgroundColor: TOOL_THEME.bg }}>
+    <div className={isEmbedded ? "" : "min-h-screen pt-20 md:pt-32 pb-20"} style={{ backgroundColor: TOOL_THEME.bg }}>
       <div className="max-w-2xl mx-auto px-4">
-        {/* Header da ferramenta - SEM ÍCONE */}
         <div className="text-center mb-8 md:mb-10">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2" style={{ color: TOOL_THEME.text }}>
             Dark Circle Type Finder
@@ -275,7 +290,6 @@ export default function DarkCircleTypeFinder() {
           </p>
         </div>
 
-        {/* Progress Bar */}
         <div className="mb-8">
           <div className="flex justify-between text-sm mb-2">
             <span style={{ color: TOOL_THEME.textLight }}>Question {step} of 3</span>
@@ -289,7 +303,6 @@ export default function DarkCircleTypeFinder() {
           </div>
         </div>
 
-        {/* Back Button */}
         {(step === 2 || step === 3) && (
           <button
             onClick={handleBack}
@@ -300,7 +313,6 @@ export default function DarkCircleTypeFinder() {
           </button>
         )}
 
-        {/* Step 1 */}
         {step === 1 && (
           <div 
             className="rounded-2xl shadow-lg p-6 md:p-8 animate-fade-in-up"
@@ -339,7 +351,6 @@ export default function DarkCircleTypeFinder() {
           </div>
         )}
 
-        {/* Step 2 */}
         {step === 2 && (
           <div 
             className="rounded-2xl shadow-lg p-6 md:p-8 animate-fade-in-up"
@@ -374,7 +385,6 @@ export default function DarkCircleTypeFinder() {
           </div>
         )}
 
-        {/* Step 3 */}
         {step === 3 && (
           <div 
             className="rounded-2xl shadow-lg p-6 md:p-8 animate-fade-in-up"

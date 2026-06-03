@@ -19,7 +19,14 @@ export const metadata: Metadata = {
   },
 };
 
-// Ferramenta tem layout próprio, NUNCA tem Nav/Footer
-export default function DarkCircleTypeFinderPage() {
-  return <DarkCircleTypeFinder />;
+interface PageProps {
+  searchParams?: {
+    embed?: string;
+  };
+}
+
+export default function DarkCircleTypeFinderPage({ searchParams }: PageProps) {
+  const isEmbedded = searchParams?.embed === "true";
+
+  return <DarkCircleTypeFinder isEmbedded={isEmbedded} />;
 }

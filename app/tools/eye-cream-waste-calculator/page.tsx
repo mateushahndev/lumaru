@@ -21,10 +21,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Page() {
+interface PageProps {
+  searchParams?: {
+    embed?: string;
+  };
+}
+
+export default function Page({ searchParams }: PageProps) {
+  const isEmbedded = searchParams?.embed === "true";
+
   return (
-    <main className="min-h-screen bg-background pt-32 pb-20">
-      <EyeCreamWasteCalculatorClient />
+    <main className={isEmbedded ? "bg-background" : "min-h-screen bg-background pt-32 pb-20"}>
+      <EyeCreamWasteCalculatorClient isEmbedded={isEmbedded} />
     </main>
   );
 }

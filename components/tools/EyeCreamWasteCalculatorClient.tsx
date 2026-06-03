@@ -1,26 +1,47 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Footer from "@/components/landing/Footer";
 import EyeCreamWasteCalculator from "./EyeCreamWasteCalculator";
 
-function EmbedLogic() {
+interface EyeCreamWasteCalculatorClientProps {
+  isEmbedded?: boolean;
+}
+
+function EmbedLogic({ isEmbedded }: { isEmbedded: boolean }) {
   const searchParams = useSearchParams();
-  const isEmbedded = searchParams.get("embed") === "true";
+  const isEmbeddedFromUrl = searchParams.get("embed") === "true" || isEmbedded;
+
+  // Enviar altura para o parent quando embedado
+  useEffect(() => {
+    if (isEmbeddedFromUrl && typeof window !== "undefined" && window.parent !== window) {
+      const sendHeight = () => {
+        const height = document.body.scrollHeight;
+        window.parent.postMessage(
+          { type: "lumaru-resize", height: height },
+          "*"
+        );
+      };
+      sendHeight();
+      const observer = new ResizeObserver(() => sendHeight());
+      observer.observe(document.body);
+      return () => observer.disconnect();
+    }
+  }, [isEmbeddedFromUrl]);
 
   return (
     <>
       <EyeCreamWasteCalculator />
-      {!isEmbedded && <Footer />}
+      {!isEmbeddedFromUrl && <Footer />}
     </>
   );
 }
 
-export default function EyeCreamWasteCalculatorClient() {
+export default function EyeCreamWasteCalculatorClient({ isEmbedded = false }: EyeCreamWasteCalculatorClientProps) {
   return (
     <Suspense fallback={<EyeCreamWasteCalculator />}>
-      <EmbedLogic />
+      <EmbedLogic isEmbedded={isEmbedded} />
     </Suspense>
   );
 }
