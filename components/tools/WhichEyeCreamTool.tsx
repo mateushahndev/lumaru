@@ -23,6 +23,10 @@ interface Answers {
 
 type Step = "question" | "loading" | "result";
 
+interface WhichEyeCreamToolProps {
+  isEmbedded?: boolean;
+}
+
 const questions: Question[] = [
   {
     id: 1,
@@ -114,7 +118,7 @@ interface Recommendation {
   cta: { text: string; href: string };
 }
 
-export default function WhichEyeCreamTool() {
+export default function WhichEyeCreamTool({ isEmbedded = false }: WhichEyeCreamToolProps) {
   const [currentStep, setCurrentStep] = useState(1);
   const [answers, setAnswers] = useState<Partial<Answers>>({});
   const [step, setStep] = useState<Step>("question");
@@ -131,6 +135,23 @@ export default function WhichEyeCreamTool() {
       sendEvent("tool_started", { tool_name: "which_eye_cream_works" });
     }
   }, [currentStep, hasStarted]);
+
+  // Enviar altura para o parent quando embedado
+  useEffect(() => {
+    if (isEmbedded && typeof window !== "undefined" && window.parent !== window) {
+      const sendHeight = () => {
+        const height = document.body.scrollHeight;
+        window.parent.postMessage(
+          { type: "lumaru-resize", height: height },
+          "*"
+        );
+      };
+      sendHeight();
+      const observer = new ResizeObserver(() => sendHeight());
+      observer.observe(document.body);
+      return () => observer.disconnect();
+    }
+  }, [isEmbedded, step, result, currentStep]);
 
   const handleConcernUnsure = () => {
     setResult({
@@ -170,7 +191,6 @@ export default function WhichEyeCreamTool() {
 
     const budgetOk = budget === "30-50" || budget === "50plus";
     const prefersNatural = natural === "essential" || natural === "prefer";
-    const isSensitive = sensitivity === "very" || sensitivity === "moderate";
     const prefersRich = texture === "rich";
     const hasFineLines = secondary === "fine-lines" || secondary === "both";
 
@@ -247,6 +267,23 @@ export default function WhichEyeCreamTool() {
         sendEvent("tool_completed", { tool_name: "which_eye_cream_works", result: "vascular_premium" });
         return;
       }
+      
+      // Fallback para vascular
+      setResult({
+        title: "You have vascular dark circles.",
+        summary: "Your answers indicate vascular dark circles — the blue/purple kind caused by blood pooling under thin skin.",
+        recommendation: "Look for formulas with Ginkgo Biloba and Horse Chestnut",
+        why: "These ingredients address microcirculation, the root cause of vascular dark circles.",
+        tips: [
+          "Use consistently for 4-8 weeks",
+          "Apply morning and night",
+          "Sleep with your head slightly elevated",
+        ],
+        whatWontWork: "Moisturizer-only creams won't fix vascular dark circles.",
+        cta: { text: "Learn More About Vascular Dark Circles →", href: "/blog/dark-circle-types-guide" },
+      });
+      sendEvent("tool_completed", { tool_name: "which_eye_cream_works", result: "vascular_fallback" });
+      return;
     }
 
     // Pigmentary dark circles
@@ -326,6 +363,22 @@ export default function WhichEyeCreamTool() {
       sendEvent("tool_completed", { tool_name: "which_eye_cream_works", result: "puffiness_general" });
       return;
     }
+    
+    // Fallback final
+    setResult({
+      title: "Let's figure out what your under-eyes need",
+      summary: "Based on your answers, we have a personalized recommendation for you.",
+      recommendation: "Take our Dark Circle Type Finder for a precise diagnosis",
+      why: "Dark circles have different causes. Knowing your specific type saves money and frustration.",
+      tips: [
+        "The Dark Circle Type Finder takes 60 seconds",
+        "No email required",
+        "You'll get a specific product recommendation",
+      ],
+      whatWontWork: "Guessing which product to buy without knowing your type is the #1 reason nothing works.",
+      cta: { text: "Take the Dark Circle Type Finder →", href: "/tools/dark-circle-type-finder" },
+    });
+    sendEvent("tool_completed", { tool_name: "which_eye_cream_works", result: "fallback" });
   };
 
   const handleAnswer = (value: string) => {
@@ -429,19 +482,21 @@ export default function WhichEyeCreamTool() {
   }
 
   return (
-    <div className="animate-fade-in-up">
-      {/* Header */}
-      <div className="text-center mb-8">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-display text-text mb-3">
-          Which Eye Cream Actually Works for Me?
-        </h1>
-        <p className="text-text/60">
-          8 questions. 2 minutes. Stop guessing and find out what your under-eyes actually need.
-        </p>
-        <p className="text-text/40 text-sm mt-2">
-          We don't collect your email. This is just an honest recommendation based on what you tell us.
-        </p>
-      </div>
+    <div className={isEmbedded ? "" : "animate-fade-in-up"}>
+      {/* Header - esconder em embed? */}
+      {!isEmbedded && (
+        <div className="text-center mb-8">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-display text-text mb-3">
+            Which Eye Cream Actually Works for Me?
+          </h1>
+          <p className="text-text/60">
+            8 questions. 2 minutes. Stop guessing and find out what your under-eyes actually need.
+          </p>
+          <p className="text-text/40 text-sm mt-2">
+            We don't collect your email. This is just an honest recommendation based on what you tell us.
+          </p>
+        </div>
+      )}
 
       {/* Progress Bar */}
       <div className="mb-8">
