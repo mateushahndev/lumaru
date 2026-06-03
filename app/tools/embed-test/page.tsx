@@ -70,31 +70,32 @@ export default function EmbedTestPage() {
           </div>
         </div>
 
+        {/* Section 3: Which Eye Cream Works for Me */}
+        <div className="mb-16">
+          <h2 className="text-2xl font-display text-[#1A1A1A] mb-3">
+            Which Eye Cream Actually Works for Me?
+          </h2>
+          <p className="text-[#1A1A1A]/70 mb-6 leading-relaxed">
+            8 questions. 2 minutes. Stop guessing and find out what your under-eyes actually need.
+          </p>
+
+          <div className="bg-white border border-[#E8E2F0] rounded-2xl p-6 shadow-sm">
+            <p className="text-[#1A1A1A]/50 text-sm mb-4 font-mono">
+              &lt;!-- Embed code would go here --&gt;
+            </p>
+            <div id="lumaru-which-eye-cream">
+              <div className="text-center py-8 text-[#1A1A1A]/40">
+                Loading tool...
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="text-center text-[#1A1A1A]/40 text-sm border-t border-[#E8E2F0] pt-8">
           <p>This page is for internal testing only. Not indexed by search engines.</p>
         </div>
       </div>
 
-      {/* Section 3: Which Eye Cream Works for Me */}
-      <div className="mb-16">
-        <h2 className="text-2xl font-display text-[#1A1A1A] mb-3">
-          Which Eye Cream Actually Works for Me?
-        </h2>
-        <p className="text-[#1A1A1A]/70 mb-6 leading-relaxed">
-          8 questions. 2 minutes. Stop guessing and find out what your under-eyes actually need.
-        </p>
-
-        <div className="bg-white border border-[#E8E2F0] rounded-2xl p-6 shadow-sm">
-          <p className="text-[#1A1A1A]/50 text-sm mb-4 font-mono">
-            &lt;!-- Embed code would go here --&gt;
-          </p>
-          <div id="lumaru-which-eye-cream">
-            <div className="text-center py-8 text-[#1A1A1A]/40">
-              Loading tool...
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Scripts de embed */}
       <Script src="/embed/dark-circle-type-finder.js" strategy="afterInteractive" />
