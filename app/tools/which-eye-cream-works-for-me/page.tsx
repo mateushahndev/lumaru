@@ -39,21 +39,29 @@ const toolSchema = {
   },
 };
 
-export default function WhichEyeCreamToolPage() {
+interface PageProps {
+  searchParams?: {
+    embed?: string;
+  };
+}
+
+export default function WhichEyeCreamToolPage({ searchParams }: PageProps) {
+  const isEmbedded = searchParams?.embed === "true";
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolSchema) }}
       />
-      <Navbar />
-      <main className="min-h-screen bg-background pt-32 pb-20">
+      {!isEmbedded && <Navbar />}
+      <main className={isEmbedded ? "" : "min-h-screen bg-background pt-32 pb-20"}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <WhichEyeCreamTool />
+          <WhichEyeCreamTool isEmbedded={isEmbedded} />
         </div>
       </main>
-      <LastUpdated date="2026-06-03" />
-      <Footer />
+      {!isEmbedded && <LastUpdated date="2026-06-03" />}
+      {!isEmbedded && <Footer />}
     </>
   );
 }
