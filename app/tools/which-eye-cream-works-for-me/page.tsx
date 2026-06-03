@@ -1,7 +1,4 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/landing/Navbar";
-import Footer from "@/components/landing/Footer";
-import LastUpdated from "@/components/LastUpdated";
 import WhichEyeCreamTool from "@/components/tools/WhichEyeCreamTool";
 
 export const metadata: Metadata = {
@@ -39,29 +36,18 @@ const toolSchema = {
   },
 };
 
-interface PageProps {
-  searchParams?: {
-    embed?: string;
-  };
-}
-
-export default function WhichEyeCreamToolPage({ searchParams }: PageProps) {
-  const isEmbedded = searchParams?.embed === "true";
-
+export default function WhichEyeCreamToolPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolSchema) }}
       />
-      {!isEmbedded && <Navbar />}
-      <main className={isEmbedded ? "" : "min-h-screen bg-background pt-32 pb-20"}>
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <WhichEyeCreamTool isEmbedded={isEmbedded} />
+      <main className="bg-background">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <WhichEyeCreamTool />
         </div>
       </main>
-      {!isEmbedded && <LastUpdated date="2026-06-03" />}
-      {!isEmbedded && <Footer />}
     </>
   );
 }
