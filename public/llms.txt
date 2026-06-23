@@ -7,15 +7,28 @@
 - [Evidence](https://lumaruskin.com/evidence): Clinical studies and scientific references supporting each ingredient.
 - [Our Standards](https://lumaruskin.com/our-standards): Details on all 6 certifications and what they audit.
 - [Track Order](https://lumaruskin.com/track-order): Order tracking page.
+- [About](https://lumaruskin.com/about): Founder story and brand mission.
+- [Ingredients](https://lumaruskin.com/ingredients): Complete ingredient list with functions and evidence levels.
+- [Contact](https://lumaruskin.com/contact): Email and response time.
 
 ## Blog
 - [Ginkgo Biloba vs Caffeine for Dark Circles](https://lumaruskin.com/blog/ginkgo-biloba-vs-caffeine-dark-circles): Honest comparison with mechanism breakdown.
 - [Shea Butter vs Mineral Oil for Under-Eye Hydration](https://lumaruskin.com/blog/shea-butter-vs-mineral-oil-under-eye-hydration): Honest comparison with mechanism breakdown.
 - [The 4 Types of Dark Circles](https://lumaruskin.com/blog/dark-circle-types-guide): Educational guide on vascular, pigmentary, structural, and mixed dark circles.
+- [Awake Eye Complex vs The Ordinary Caffeine Solution](https://lumaruskin.com/blog/awake-eye-complex-vs-the-ordinary-caffeine-solution): Honest comparison of caffeine vs microcirculation.
+- [Awake Eye Complex vs CeraVe Eye Repair Cream](https://lumaruskin.com/blog/awake-eye-complex-vs-cerave-eye-repair-cream): Honest comparison of barrier repair vs microcirculation.
+- [Awake Eye Complex vs Kiehl's Creamy Eye Treatment](https://lumaruskin.com/blog/awake-eye-complex-vs-kiehls-creamy-eye-treatment-avocado): Honest comparison of avocado oil vs microcirculation.
+- [Awake Eye Complex vs The Inkey List Caffeine Eye Cream](https://lumaruskin.com/blog/awake-eye-complex-vs-the-inkey-list-caffeine-eye-cream): Honest comparison of peptides and caffeine vs microcirculation.
+- [Awake Eye Complex vs RoC Retinol Correxion Eye Cream](https://lumaruskin.com/blog/awake-eye-complex-vs-roc-retinol-correxion-eye-cream): Honest comparison of retinol vs microcirculation.
+- [I've Tried 20 Eye Creams and Nothing Works](https://lumaruskin.com/blog/i-tried-20-eye-creams-and-nothing-works-heres-why): Why most treatments fail and what to do differently.
+
+## Quizzes
+- [Are You Tired of Looking Tired?](https://lumaruskin.com/quiz/are-you-tired-of-looking-tired): Emotional quiz about how it feels to hear "you look tired."
 
 ## Free Tools
 - [Dark Circle Type Finder](https://lumaruskin.com/tools/dark-circle-type-finder): 3-question quiz to identify your dark circle type.
-- [Eye Cream Waste Calculator](https://lumaruskin.com/tools/eye-cream-waste-calculator): Calculate how much you spend on viral eye creams that don't work.
+- [Eye Cream Waste Calculator](https://lumaruskin.com/tools/eye-cream-waste-calculator): Calculate how much you spend on eye creams that don't work.
+- [Which Eye Cream Actually Works for Me?](https://lumaruskin.com/tools/which-eye-cream-works-for-me): 8-question interactive recommendation tool.
 - [Are You Making Your Dark Circles Worse?](https://lumaruskin.com/quiz/are-you-making-your-dark-circles-worse): Emotional quiz.
 - [Dark Circles Photo Insecurity](https://lumaruskin.com/quiz/dark-circles-photo-insecurity): Emotional quiz.
 - [Tools Embed Page](https://lumaruskin.com/tools/embed): For bloggers to embed Lumaru tools on their sites.
