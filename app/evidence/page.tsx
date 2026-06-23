@@ -24,6 +24,45 @@ export const metadata: Metadata = {
   },
 };
 
+const evidenceFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What evidence supports Shea Butter for skin barrier repair?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lodén (2003) demonstrated that topical emollients with Shea Butter's fatty acid profile measurably improve barrier function in compromised skin. Akihisa et al. (2010) identified lupeol cinnamate — a triterpene found in shea butter — as a meaningful anti-inflammatory compound, showing inhibitory effects on skin inflammation markers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What evidence supports Ginkgo Biloba for microcirculation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Suter et al. (2011) reviewed clinical evidence for ginkgo biloba's effect on microcirculation, finding consistent support for improved blood flow and reduced capillary fragility across multiple study designs. The ginkgolides act as platelet-activating factor (PAF) antagonists, reducing increased vascular permeability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What evidence supports Horse Chestnut for puffiness?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pittler & Ernst (2012), in a Cochrane systematic review — the highest standard of evidence synthesis — found horse chestnut seed extract significantly superior to placebo in reducing symptoms of chronic venous insufficiency, including edema. Aescin works by inhibiting hyaluronidase and elastase, enzymes that break down the capillary matrix."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What evidence supports Multi-Molecular Hyaluronic Acid for hydration?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pavicic et al. (2011) demonstrated that formulations combining multiple HA molecular weights produced significantly better results on periorbital skin than single-weight HA. Rawlings & Harding (2004) provided foundational evidence that skin barrier hydration and HA supplementation work synergistically."
+      }
+    }
+  ]
+};
+
 // Ingredientes data
 const ingredients = [
   {

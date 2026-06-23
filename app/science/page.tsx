@@ -23,6 +23,54 @@ export const metadata: Metadata = {
   },
 };
 
+// Adicione este schema junto com os outros schemas existentes
+const scienceFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does Shea Butter work for the under-eye area?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Shea butter is a fat extracted from the nut of the African shea tree, rich in oleic acid, stearic acid, and triterpene alcohols. The triterpene alcohols — particularly lupeol cinnamate — suppress inflammatory enzymes that cause barrier breakdown around the eye. The high oleic acid content integrates into the stratum corneum, reinforcing the barrier that keeps moisture in and irritants out."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Ginkgo Biloba help with dark circles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ginkgo biloba works through its effect on microcirculation. The terpene lactones (ginkgolides A, B, C) are platelet-activating factor antagonists, reducing the tendency of blood to pool and leak into surrounding tissue — one of the main reasons dark circles appear as a bluish or purplish tinge beneath the skin. The flavonoid fraction also scavenges free radicals that degrade capillary walls over time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Horse Chestnut reduce puffiness?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Horse chestnut contains aescin, a saponin glycoside that inhibits enzymes that degrade the proteoglycan matrix surrounding capillaries. When this matrix stays intact, capillary walls are less leaky — meaning fluid is less likely to seep into surrounding tissue and create puffiness. Aescin also has a mild toning effect on small blood vessels."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Multi-Molecular Hyaluronic Acid hydrate the skin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multi-molecular HA combines high-molecular-weight and low-molecular-weight forms in a single formulation. High-molecular-weight HA forms a film on the skin surface that reduces water evaporation. Low-molecular-weight HA penetrates into the dermis and binds water molecules within the extracellular matrix, which physically plumps the tissue."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long until I see results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hydration is immediate. Puffiness typically goes down within the first week. For dark circles, consistent twice-daily use brings visible brightening week by week over 4-8 weeks. Results are cumulative and compound with continued use."
+      }
+    }
+  ]
+};
+
 const ingredients = [
   {
     number: "01",
