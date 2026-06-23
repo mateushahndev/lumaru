@@ -95,12 +95,13 @@ export default function ContactPage() {
           <section>
             <h2 className="text-xl font-semibold text-text mb-3">Find us elsewhere</h2>
             <p>
-              We're on{" "}
-              <a href="https://bsky.app/profile/mateushahn.bsky.social" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                Bluesky
-              </a>
-              {" "}and{" "}
-              <a href="https://www.pinterest.com/awakemyeyes/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+              We're{" "}
+              <a
+                href="https://www.pinterest.com/awakemyeyes/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              >
                 Pinterest
               </a>
               . We're most responsive on email, but you can find us there too.
