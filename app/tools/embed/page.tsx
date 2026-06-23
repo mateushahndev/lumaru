@@ -23,9 +23,26 @@ export const metadata: Metadata = {
   },
 };
 
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "url": "https://lumaruskin.com/tools/embed",
+  "name": "Free Skincare Tools for Bloggers",
+  "description": "Embed interactive skincare tools on your blog. No signup. Just copy and paste.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Lumaru",
+    "url": "https://lumaruskin.com"
+  }
+};
+
 export default function EmbedToolsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
       <Navbar />
       <main className="min-h-screen bg-background pt-32 pb-20">
         <EmbedTools />

@@ -25,9 +25,26 @@ export const metadata: Metadata = {
   },
 };
 
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "url": "https://lumaruskin.com/about",
+  "name": "About Lumaru — Clean Science for Tired Eyes",
+  "description": "Meet Mateus Hahn, the 21-year-old founder behind Lumaru. Built for tired eyes, honest skincare, and real science. No hype, no filler.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Lumaru",
+    "url": "https://lumaruskin.com"
+  }
+};
+
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
       <Navbar />
       <main className="min-h-screen bg-background pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

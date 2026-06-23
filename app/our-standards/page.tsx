@@ -20,6 +20,19 @@ export const metadata: Metadata = {
   },
 };
 
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "url": "https://lumaruskin.com/our-standards",
+  "name": "Our Standards — Certified Clean Skincare",
+  "description": "Six third-party certifications, independently audited. No spin, just proof.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Lumaru",
+    "url": "https://lumaruskin.com"
+  }
+};
+
 const certifications = [
   {
     name: "COSMOS Natural",
@@ -61,6 +74,11 @@ const certifications = [
 
 export default function OurStandardsPage() {
   return (
+    <>
+    <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+    />
     <div className="min-h-screen bg-background pt-32 pb-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -109,5 +127,6 @@ export default function OurStandardsPage() {
       <p className="text-text/50 text-sm text-center mt-4 mb-4">Written by Mateus Hahn</p>
       <LastUpdated date="2026-05-17" />
     </div>
+    </>
   );
 }

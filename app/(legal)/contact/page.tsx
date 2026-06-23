@@ -107,9 +107,7 @@ export default function ContactPage() {
             </p>
           </section>
         </div>
-
-        {/* Last Updated */}
-        <LastUpdated date="2026-05-24" />
+        <LastUpdated date="2026-06-23" />
       </div>
     </>
   );

@@ -24,6 +24,19 @@ export const metadata: Metadata = {
   },
 };
 
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "url": "https://lumaruskin.com/ingredients",
+  "name": "Ingredients Data — Awake Eye Complex",
+  "description": "Complete ingredient list for the Awake Eye Complex. Every ingredient, its function, and its source. No proprietary blends.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Lumaru",
+    "url": "https://lumaruskin.com"
+  }
+};
+
 interface Ingredient {
   name: string;
   function: string;
@@ -86,6 +99,10 @@ const getBadgeStyles = (badge: string) => {
 export default function IngredientsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
       <Navbar />
       <main className="min-h-screen bg-background pt-32 pb-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

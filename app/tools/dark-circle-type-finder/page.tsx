@@ -19,6 +19,19 @@ export const metadata: Metadata = {
   },
 };
 
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "url": "https://lumaruskin.com/tools/dark-circle-type-finder",
+  "name": "Dark Circle Type Finder",
+  "description": "3-question quiz to identify your dark circle type.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Lumaru",
+    "url": "https://lumaruskin.com"
+  }
+};
+
 interface PageProps {
   searchParams?: {
     embed?: string;
@@ -28,5 +41,13 @@ interface PageProps {
 export default function DarkCircleTypeFinderPage({ searchParams }: PageProps) {
   const isEmbedded = searchParams?.embed === "true";
 
-  return <DarkCircleTypeFinder isEmbedded={isEmbedded} />;
+  return (
+    <>
+    <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+    />
+    <DarkCircleTypeFinder isEmbedded={isEmbedded} />
+    </>
+  );
 }
