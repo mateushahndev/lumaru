@@ -93,7 +93,6 @@ export default function HowItWorks() {
             <div
               key={step.number}
               className="bg-white rounded-xl p-6 text-left shadow-sm border border-primary-light/20 hover:shadow-lg transition-all duration-300 hover:scale-105"
-              style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="text-3xl font-bold text-primary mb-3">
                 {step.number}

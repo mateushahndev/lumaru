@@ -60,7 +60,6 @@ export default function Testimonials({ title, testimonials, showCTA = true }: Te
           <div
             key={testimonial.id}
             className="bg-white rounded-xl p-6 shadow-sm border border-primary-light/20 transition-all duration-300 hover:shadow-lg hover:scale-105 hover:border-primary-light/40"
-            style={{ animationDelay: `${index * 100}ms` }}
           >
             <div className="text-primary text-sm mb-3">
               {"★".repeat(testimonial.rating)}

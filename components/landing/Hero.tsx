@@ -38,7 +38,7 @@ export default function Hero() {
     <section className="pt-32 pb-16 md:pt-40 md:pb-20" ref={heroRef}>
       <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Left Column - Content */}
-        <div className="space-y-6 opacity-0 animate-fade-in-up [animation-delay:200ms]">
+        <div className="space-y-6 opacity-0 animate-fade-in-up">
           <div className="inline-flex items-center gap-2 bg-primary-light/20 px-4 py-2 rounded-full">
             <span className="text-primary text-sm font-semibold">★★★★★</span>
             <span className="text-text/70 text-sm">Clean science for tired eyes</span>
@@ -81,7 +81,7 @@ export default function Hero() {
         </div>
 
         {/* Right Column - Product Image */}
-        <div className="relative opacity-0 animate-fade-in-up [animation-delay:400ms]">
+        <div className="relative opacity-0 animate-fade-in-up">
           <div className="bg-gradient-to-br from-primary-light/5 to-primary-light/35 rounded-2xl p-8 md:p-12">
             <div className="relative w-full aspect-square max-w-[320px] mx-auto rounded-2xl overflow-hidden">
               <Image

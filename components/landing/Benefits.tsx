@@ -81,7 +81,6 @@ export default function Benefits() {
             className={`grid md:grid-cols-2 gap-8 md:gap-12 items-center ${
               benefit.reverse ? "md:direction-rtl" : ""
             }`}
-            style={{ animationDelay: `${index * 150}ms` }}
           >
             {/* Image Block */}
             <div className={benefit.reverse ? "md:order-last" : ""}>
