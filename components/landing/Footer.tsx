@@ -24,8 +24,8 @@ export default function Footer() {
             <h4 className="font-semibold text-text">Shop</h4>
             <ul className="space-y-2 text-sm text-text/60">
               <li>
-                <Link 
-                  href="/" 
+                <Link
+                  href="/"
                   className="hover:text-primary transition-colors duration-300"
                 >
                   Awake Eye Complex
@@ -71,8 +71,8 @@ export default function Footer() {
             <h4 className="font-semibold text-text">Support</h4>
             <ul className="space-y-2 text-sm text-text/60">
               <li>
-                <Link 
-                  href="/contact" 
+                <Link
+                  href="/contact"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors duration-300"
@@ -81,8 +81,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/shipping" 
+                <Link
+                  href="/shipping"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors duration-300"
@@ -91,8 +91,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/refund" 
+                <Link
+                  href="/refund"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors duration-300"
@@ -108,8 +108,8 @@ export default function Footer() {
             <h4 className="font-semibold text-text">Legal</h4>
             <ul className="space-y-2 text-sm text-text/60">
               <li>
-                <Link 
-                  href="/privacy" 
+                <Link
+                  href="/privacy"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors duration-300"
@@ -118,8 +118,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/terms" 
+                <Link
+                  href="/terms"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors duration-300"
@@ -133,7 +133,17 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="border-t border-primary-light/20 mt-8 pt-8 text-center text-sm text-text/50">
-          <p>© {currentYear} Lumaru. All rights reserved.</p>
+          <p>
+            © {currentYear} Lumaru. All rights reserved. Powered by{" "}
+            <a
+              href="https://www.mateushahn.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text/50 hover:text-text/70 transition-colors duration-300"
+            >
+              Mateus Hahn
+            </a>
+          </p>
         </div>
       </div>
     </footer>
