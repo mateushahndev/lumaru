@@ -51,19 +51,19 @@ const testimonialsSet1 = [
     id: 1,
     rating: 5,
     text: "Shea butter cleared the dark circles around my eyes in less than a week. Just saying.",
-    author: "— Verified Formula Tester",
+    author: "Verified Formula Tester",
   },
   {
     id: 2,
     rating: 5,
     text: "I love shea. I mix it with a little jojoba and argan and I wake up with the softest, happiest skin.",
-    author: "— Verified Formula Tester",
+    author: "Verified Formula Tester",
   },
   {
     id: 3,
     rating: 5,
     text: "I sleep with shea all over my face every night and I looove it. Hasn't broken me out either and my skin looks so healthy in the morning.",
-    author: "— Verified Formula Tester",
+    author: "Verified Formula Tester",
   },
 ];
 
@@ -72,19 +72,19 @@ const testimonialsSet2 = [
     id: 4,
     rating: 5,
     text: "I have absolutely seen a big difference. And it happens really quickly, like honestly the first morning after using it. It's just moisturizing the skin super well and plumps it up a bit.",
-    author: "— Verified Formula Tester",
+    author: "Verified Formula Tester",
   },
   {
     id: 5,
     rating: 5,
     text: "My girlfriend commented on it around a week in, completely not knowing I was using anything. Diminished dark circles and overall healthier skin.",
-    author: "— Verified Formula Tester",
+    author: "Verified Formula Tester",
   },
   {
     id: 6,
     rating: 5,
     text: "My under eye concealer usually gets dry and separates by the end of the night but it actually held up. If my concealer can stay without drying it's a win.",
-    author: "— Verified Formula Tester",
+    author: "Verified Formula Tester",
   },
 ];
 
