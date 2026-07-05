@@ -144,7 +144,7 @@ export default function RootLayout({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
       {/* Google Analytics 4 */}
-      {/*<GoogleAnalytics gaId="G-TS8PPQ5WKC" />*/}
+      <GoogleAnalytics gaId="G-TS8PPQ5WKC" />
       {/* Microsoft Clarity */}
       {/*<Script id="clarity-script" strategy="afterInteractive">
         {`
