@@ -52,9 +52,3 @@ html {
   scroll-padding-top: 90px; /* Altura do seu header fixo */
   scroll-behavior: smooth;
 }
-
-.animate-fade-in-up {
-  animation: none !important;
-  opacity: 1 !important;
-  transform: none !important;
-}
