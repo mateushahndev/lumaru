@@ -146,7 +146,7 @@ export default function RootLayout({
       {/* Google Analytics 4 */}
       <GoogleAnalytics gaId="G-TS8PPQ5WKC" />
       {/* Microsoft Clarity */}
-      <Script id="clarity-script" strategy="afterInteractive">
+      {/*<Script id="clarity-script" strategy="afterInteractive">
         {`
           (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -154,7 +154,7 @@ export default function RootLayout({
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
           })(window, document, "clarity", "script", "wny6yx4g");
         `}
-      </Script>
+      </Script>*/}
     </html>
   );
 }
