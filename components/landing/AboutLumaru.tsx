@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { sendEvent } from "@/lib/useGA4";
+import { useScreenshot } from "@/components/providers/ScreenshotProvider";
 
 const certifications = [
   "ECOCERT Certified",
@@ -13,13 +14,22 @@ const certifications = [
 
 export default function AboutLumaru() {
   const sectionRef = useRef<HTMLElement>(null);
+  const { isScreenshotMode } = useScreenshot();
 
   useEffect(() => {
+    if (isScreenshotMode) {
+      if (sectionRef.current) {
+        sectionRef.current.classList.add("animate-fade-in-up");
+      }
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("animate-fade-in-up");
+            observer.unobserve(entry.target);
           }
         });
       },
@@ -31,7 +41,7 @@ export default function AboutLumaru() {
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [isScreenshotMode]);
 
   const handleCTAClick = () => {
     sendEvent("cta_clicked", {
@@ -82,7 +92,6 @@ export default function AboutLumaru() {
 
         {/* Right Column - Brand Visual */}
         <div className="bg-gradient-to-br from-primary-light/20 to-primary-light/5 rounded-2xl p-12 text-center">
-          {/* Logo circular - maior e redondo */}
           <div className="w-56 h-56 mx-auto bg-primary rounded-full flex items-center justify-center mb-4 shadow-lg">
             <span className="text-4xl md:text-5xl font-display font-medium tracking-wide text-white">
               lumaru

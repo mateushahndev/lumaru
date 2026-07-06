@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from "next/script";
 import "./globals.css";
+import { ScreenshotProvider } from "@/components/providers/ScreenshotProvider";
 
 // Configuração otimizada das fontes com pré-carregamento
 const inter = Inter({
@@ -134,7 +135,9 @@ export default function RootLayout({
     <html lang="en-US" className={`${inter.variable} ${playfair.variable}`}>
       <head />
       <body className="font-sans antialiased bg-background text-text">
-        {children}
+        <ScreenshotProvider>
+          {children}
+        </ScreenshotProvider>
       </body>
       {/* ✅ Organization Schema — usando Script do Next para evitar hydration issues */}
       <Script

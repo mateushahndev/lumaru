@@ -3,16 +3,27 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { sendEvent } from "@/lib/useGA4";
+import { useScreenshot } from "@/components/providers/ScreenshotProvider";
 
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
+  const { isScreenshotMode } = useScreenshot();
 
   useEffect(() => {
+    // Se estiver em modo screenshot, ativa a animação imediatamente
+    if (isScreenshotMode) {
+      if (heroRef.current) {
+        heroRef.current.classList.add("animate-fade-in-up");
+      }
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("animate-fade-in-up");
+            observer.unobserve(entry.target); // ← Para de observar depois que anima
           }
         });
       },
@@ -24,7 +35,7 @@ export default function Hero() {
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [isScreenshotMode]);
 
   const handleCTAClick = () => {
     sendEvent("cta_clicked", {

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { sendEvent } from "@/lib/useGA4";
+import { useScreenshot } from "@/components/providers/ScreenshotProvider";
 
 interface Testimonial {
   id: number;
@@ -18,13 +19,22 @@ interface TestimonialsProps {
 
 export default function Testimonials({ title, testimonials, showCTA = true }: TestimonialsProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { isScreenshotMode } = useScreenshot();
 
   useEffect(() => {
+    if (isScreenshotMode) {
+      if (sectionRef.current) {
+        sectionRef.current.classList.add("animate-fade-in-up");
+      }
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("animate-fade-in-up");
+            observer.unobserve(entry.target);
           }
         });
       },
@@ -36,7 +46,7 @@ export default function Testimonials({ title, testimonials, showCTA = true }: Te
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [isScreenshotMode]);
 
   const handleCTAClick = () => {
     sendEvent("cta_clicked", {

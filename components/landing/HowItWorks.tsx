@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { sendEvent } from "@/lib/useGA4";
+import { useScreenshot } from "@/components/providers/ScreenshotProvider";
 
 const steps = [
   {
@@ -40,13 +41,22 @@ const howToSchema = {
 
 export default function HowItWorks() {
   const sectionRef = useRef<HTMLElement>(null);
+  const { isScreenshotMode } = useScreenshot();
 
   useEffect(() => {
+    if (isScreenshotMode) {
+      if (sectionRef.current) {
+        sectionRef.current.classList.add("animate-fade-in-up");
+      }
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("animate-fade-in-up");
+            observer.unobserve(entry.target);
           }
         });
       },
@@ -58,7 +68,7 @@ export default function HowItWorks() {
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [isScreenshotMode]);
 
   const handleCTAClick = () => {
     sendEvent("cta_clicked", {

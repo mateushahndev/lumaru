@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { sendEvent } from "@/lib/useGA4";
+import { useScreenshot } from "@/components/providers/ScreenshotProvider";
 
 const benefits = [
   "Micro-Circulation Awakening Complex + Hyaluronic Acid — targets the root cause and hydrates instantly",
@@ -15,13 +16,22 @@ export default function FinalCTA() {
   const sectionRef = useRef<HTMLElement>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedBundle, setSelectedBundle] = useState<boolean | null>(null);
+  const { isScreenshotMode } = useScreenshot();
 
   useEffect(() => {
+    if (isScreenshotMode) {
+      if (sectionRef.current) {
+        sectionRef.current.classList.add("animate-fade-in-up");
+      }
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("animate-fade-in-up");
+            observer.unobserve(entry.target);
           }
         });
       },
@@ -33,7 +43,7 @@ export default function FinalCTA() {
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [isScreenshotMode]);
 
   const handleCheckout = async (bundle: boolean) => {
     setSelectedBundle(bundle);
@@ -97,7 +107,6 @@ export default function FinalCTA() {
 
           {/* Mobile: cards horizontais compactos */}
           <div className="flex flex-col gap-3 md:hidden pt-2">
-            {/* 1 Unit Card - Mobile */}
             <div className="flex items-center justify-between border border-[#E8E2F0] rounded-xl p-3 bg-white/10 backdrop-blur-sm">
               <div>
                 <div className="text-xl font-bold text-white">$35.90</div>
@@ -112,7 +121,6 @@ export default function FinalCTA() {
               </button>
             </div>
 
-            {/* 2 Units Card - Mobile */}
             <div className="relative flex items-center justify-between border-2 border-primary rounded-xl p-3 bg-primary/10">
               <div className="absolute -top-2 left-3 bg-primary text-white text-xs font-bold px-2 py-0.5 rounded-full">
                 Best Value

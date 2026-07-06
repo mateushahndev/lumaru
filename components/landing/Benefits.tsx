@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { sendEvent } from "@/lib/useGA4";
+import { useScreenshot } from "@/components/providers/ScreenshotProvider";
 
 const benefits = [
   {
@@ -39,13 +40,22 @@ const benefits = [
 
 export default function Benefits() {
   const sectionRef = useRef<HTMLElement>(null);
+  const { isScreenshotMode } = useScreenshot();
 
   useEffect(() => {
+    if (isScreenshotMode) {
+      if (sectionRef.current) {
+        sectionRef.current.classList.add("animate-fade-in-up");
+      }
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("animate-fade-in-up");
+            observer.unobserve(entry.target);
           }
         });
       },
@@ -57,7 +67,7 @@ export default function Benefits() {
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [isScreenshotMode]);
 
   const handleCTAClick = (benefitId: number) => {
     const buttonText = benefitId === 1 ? "Get Awake Eye Complex →" 
